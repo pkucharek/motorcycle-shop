@@ -4,7 +4,7 @@ create database motorcycle_shop;
 use motorcycle_shop;
 
 create table motorcycle (
-	 id int(11) not null primary key
+	 id int(11) not null primary key auto_increment
     ,model varchar(25) not null
     ,color varchar(25) not null
     ,type varchar(25) not null
