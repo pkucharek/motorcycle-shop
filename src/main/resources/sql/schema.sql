@@ -1,17 +1,17 @@
 drop database if exists motorcycle_shop;
-drop user if exists 'motorcycle'@'localhost';
+create database motorcycle_shop;
 
-CREATE USER 'motorcycle'@'localhost' IDENTIFIED BY 'motorcycle';
-GRANT ALL PRIVILEGES ON * . * TO 'motorcycle'@'localhost';
-ALTER USER 'motorcycle'@'localhost' IDENTIFIED WITH mysql_native_password BY 'motorcycle';
+use motorcycle_shop;
 
 create table motorcycle (
-	 id int(11) NOT NULL auto_increment
-	,brand varchar(30) not null
-    ,model varchar(30) not null
-    ,production_year year not null
-    ,
-
-
-     check(production_year between(year("1885-01-01"), year(current_date()))
-)
+	 id int(11) not null primary key
+    ,model varchar(25) not null
+    ,color varchar(25) not null
+    ,type varchar(25) not null
+    ,production_year year not null 
+		check (production_year between
+			year("1885-01-01") and year(current_date())
+		)
+	,cylinders int(2) check (cylinders between 1 and 12)
+    ,engine_capacity int(5) check (engine_capacity between 1 and 3000)
+);
