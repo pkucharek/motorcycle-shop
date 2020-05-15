@@ -18,5 +18,5 @@ public class MotorcycleServiceImpl
     public List<Motorcycle> findAll() {
         return motorcycleRepository.findAll();
     }
-    
+
 }
