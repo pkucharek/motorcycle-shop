@@ -4,3 +4,7 @@ spring:
     username: motorcycle
     password: motorcycle
     initialization-mode: always
+    schema:
+      - classpath:/sql/schema.sql
+    data:
+      - classpath:/sql/data.sql
