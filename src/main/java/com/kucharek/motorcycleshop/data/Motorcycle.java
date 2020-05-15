@@ -1,4 +1,4 @@
-package com.kucharek.motorcycleshop.entity;
+package com.kucharek.motorcycleshop.data;
 
 import lombok.AccessLevel;
 import lombok.Data;

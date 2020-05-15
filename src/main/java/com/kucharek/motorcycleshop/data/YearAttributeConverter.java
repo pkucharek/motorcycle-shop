@@ -1,4 +1,4 @@
-package com.kucharek.motorcycleshop.entity;
+package com.kucharek.motorcycleshop.data;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
