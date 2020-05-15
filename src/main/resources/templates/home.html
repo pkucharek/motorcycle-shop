@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Motorcycle home page</title>
@@ -7,6 +7,34 @@
 <body>
 
     <h1>Home page of motorcycle shop</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Brand</th>
+                <th>Model</th>
+                <th>Color</th>
+                <th>Type</th>
+                <th>Production year</th>
+                <th>Cylinders</th>
+                <th>Engine capacity</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="motorcycle : ${motorcycles}">
+                <td th:text="${motorcycle.id}" />
+                <td th:text="${motorcycle.brand}" />
+                <td th:text="${motorcycle.model}" />
+                <td th:text="${motorcycle.color}" />
+                <td th:text="${motorcycle.type}" />
+                <td th:text="${motorcycle.productionYear}" />
+                <td th:text="${motorcycle.cylinders}" />
+                <td th:text="${motorcycle.engineCapacity}" />
+            </tr>
+        </tbody>
+
+    </table>
 
 </body>
 </html>
