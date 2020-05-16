@@ -19,7 +19,52 @@
         <h1 class="display-1 my-5">Motorcycle shop</h1>
 
         <p class="h3 my-3">Add motorcycle</p>
-
+        <form action="#" th:action="@{/motorcycles/save}"
+                         th:object="${motorcycle}" method="POST">
+            <div class="row">
+                <div class="col-3"></div>
+                <input type="text" th:field="*{brand}"
+                       class="form-control my-3 col-6 align-center" placeholder="Brand">
+                <div class="col-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-3"></div>
+                <input type="text" th:field="*{model}"
+                       class="form-control my-3 col-6 align-center" placeholder="Model">
+                <div class="col-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-3"></div>
+                <input type="text" th:field="*{color}"
+                       class="form-control my-3 col-6 align-center" placeholder="Color">
+                <div class="col-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-3"></div>
+                <input type="text" th:field="*{type}"
+                       class="form-control my-3 col-6 align-center" placeholder="Type">
+                <div class="col-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-3"></div>
+                <input type="text" th:field="*{productionYear}"
+                       class="form-control my-3 col-6 align-center" placeholder="Production Year">
+                <div class="col-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-3"></div>
+                <input type="text" th:field="*{cylinders}"
+                       class="form-control my-3 col-6 align-center" placeholder="Cylinders">
+                <div class="col-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-3"></div>
+                <input type="text" th:field="*{engineCapacity}"
+                       class="form-control my-3 col-6 align-center" placeholder="Engine Capacity">
+                <div class="col-3"></div>
+            </div>
+            <button type="submit" class="btn btn-outline-info mb-2">Save motorcycle</button>
+        </form>
     </div>
     <footer class="footer">
         <div class="container text-center">
