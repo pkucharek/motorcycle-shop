@@ -11,14 +11,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping("/motorcycles")
 public class MotorcycleController {
 
     @Autowired
     private MotorcycleService motorcycleService;
 
-    @GetMapping
-    public String homePage(Model model) {
+    @GetMapping("/list")
+    public String listMotorcycles(Model model) {
         List<Motorcycle> motorcycles = motorcycleService.findAll();
         model.addAttribute("motorcycles", motorcycles);
         return "home";
