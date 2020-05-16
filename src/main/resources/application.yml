@@ -8,3 +8,5 @@ spring:
       - classpath:/sql/schema.sql
     data:
       - classpath:/sql/data.sql
+    thymeleaf:
+      cache: false

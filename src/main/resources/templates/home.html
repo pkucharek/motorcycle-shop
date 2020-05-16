@@ -2,39 +2,54 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link th:href="@{/styles/styles.css}" rel="stylesheet" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <title>Motorcycle home page</title>
 </head>
 <body>
+    <div class="container-fluid text-center">
+        <h1 class="display-1 my-5">Motorcycle shop</h1>
 
-    <h1>Home page of motorcycle shop</h1>
+        <table class="table table-striped mx-auto">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Id</th>
+                    <th>Brand</th>
+                    <th>Model</th>
+                    <th>Color</th>
+                    <th>Type</th>
+                    <th>Production year</th>
+                    <th>Cylinders</th>
+                    <th>Engine capacity</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="motorcycle : ${motorcycles}">
+                    <td th:text="${motorcycle.id}" />
+                    <td th:text="${motorcycle.brand}" />
+                    <td th:text="${motorcycle.model}" />
+                    <td th:text="${motorcycle.color}" />
+                    <td th:text="${motorcycle.type}" />
+                    <td th:text="${motorcycle.productionYear}" />
+                    <td th:text="${motorcycle.cylinders}" />
+                    <td th:text="${motorcycle.engineCapacity}" />
+                </tr>
+            </tbody>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Brand</th>
-                <th>Model</th>
-                <th>Color</th>
-                <th>Type</th>
-                <th>Production year</th>
-                <th>Cylinders</th>
-                <th>Engine capacity</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr th:each="motorcycle : ${motorcycles}">
-                <td th:text="${motorcycle.id}" />
-                <td th:text="${motorcycle.brand}" />
-                <td th:text="${motorcycle.model}" />
-                <td th:text="${motorcycle.color}" />
-                <td th:text="${motorcycle.type}" />
-                <td th:text="${motorcycle.productionYear}" />
-                <td th:text="${motorcycle.cylinders}" />
-                <td th:text="${motorcycle.engineCapacity}" />
-            </tr>
-        </tbody>
-
-    </table>
-
+        </table>
+    </div>
+    <footer class="footer">
+        <div class="container text-center">
+            2020 &copy; Motorcycle shop
+        </div>
+    </footer>
 </body>
 </html>
