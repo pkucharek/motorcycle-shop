@@ -19,4 +19,10 @@ public class MotorcycleServiceImpl
         return motorcycleRepository.findAll();
     }
 
+    @Override
+    public void save(Motorcycle motorcycle) {
+        motorcycleRepository.save(motorcycle);
+    }
+
+
 }
