@@ -42,14 +42,14 @@ public class Motorcycle {
 
     @Column
     @NotNull(message = "Cylinders are obligatory")
-    @Min(value = 1, message = "Cylinders number should be greater or equal than 1")
-    @Max(value = 12, message = "Cylinders number should be less or equal than 12")
+    @Min(value = 1, message = "Cylinders number should be between 1 and 12")
+    @Max(value = 12, message = "Cylinders number should be between 1 and 12")
     private byte cylinders;
 
     @Column
     @NotNull(message = "Engine capacity is obligatory")
-    @Min(value = 1, message = "Engine capacity should be greater or equal than 1")
-    @Max(value = 3000, message = "Engine capacity should be less or equal than 3000")
+    @Min(value = 1, message = "Engine capacity should be between 1 and 3000")
+    @Max(value = 3000, message = "Engine capacity should be between 1 and 3000")
     private short engineCapacity;
 
 }
