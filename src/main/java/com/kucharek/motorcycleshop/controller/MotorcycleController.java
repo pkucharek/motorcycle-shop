@@ -23,4 +23,9 @@ public class MotorcycleController {
         model.addAttribute("motorcycles", motorcycles);
         return "motorcycles/list";
     }
+
+    @GetMapping("/showFormForAdd")
+    public String showFormForAdd() {
+        return "motorcycles/form";
+    }
 }
