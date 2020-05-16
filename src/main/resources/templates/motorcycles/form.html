@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add motorcycle</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link th:href="@{/styles/styles.css}" rel="stylesheet" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="container text-center">
+        <h1 class="display-1 my-5">Motorcycle shop</h1>
+
+        <p class="h3 my-3">Add motorcycle</p>
+        <form action="#" th:action="@{/motorcycles/save}"
+                         th:object="${motorcycle}" method="POST">
+            <div class="row">
+                <div class="col-3"></div>
+                <input type="text" th:field="*{brand}"
+                       class="form-control my-3 col-6 align-center" placeholder="Brand">
+                <div class="col-3 text-danger my-3"
+                     th:if="${#fields.hasErrors('brand')}"
+                     th:errors="*{brand}" />
+            </div>
+            <div class="row">
+                <div class="col-3"></div>
+                <input type="text" th:field="*{model}"
+                       class="form-control my-3 col-6 align-center" placeholder="Model">
+                <div class="col-3 text-danger my-3"
+                     th:if="${#fields.hasErrors('model')}"
+                     th:errors="*{model}" />
+            </div>
+            <div class="row">
+                <div class="col-3"></div>
+                <input type="text" th:field="*{color}"
+                       class="form-control my-3 col-6 align-center" placeholder="Color">
+                <div class="col-3 text-danger my-3"
+                     th:if="${#fields.hasErrors('color')}"
+                     th:errors="*{color}" />
+            </div>
+            <div class="row">
+                <div class="col-3"></div>
+                <input type="text" th:field="*{type}"
+                       class="form-control my-3 col-6 align-center" placeholder="Type">
+                <div class="col-3 text-danger my-3"
+                     th:if="${#fields.hasErrors('type')}"
+                     th:errors="*{type}" />
+            </div>
+            <div class="row">
+                <div class="col-3"></div>
+                <input type="text" th:field="*{productionYear}"
+                       class="form-control my-3 col-6 align-center" placeholder="Production Year">
+                <div class="col-3 text-danger my-3"
+                     th:if="${#fields.hasErrors('productionYear')}"
+                     th:errors="*{productionYear}" />
+            </div>
+            <div class="row">
+                <div class="col-3"></div>
+                <input type="text" th:field="*{cylinders}"
+                       class="form-control my-3 col-6 align-center" placeholder="Cylinders">
+                <div class="col-3 text-danger my-3"
+                     th:if="${#fields.hasErrors('cylinders')}"
+                     th:errors="*{cylinders}" />
+            </div>
+            <div class="row">
+                <div class="col-3"></div>
+                <input type="text" th:field="*{engineCapacity}"
+                       class="form-control my-3 col-6 align-center" placeholder="Engine Capacity">
+                <div class="col-3 text-danger my-3"
+                     th:if="${#fields.hasErrors('engineCapacity')}"
+                     th:errors="*{engineCapacity}" />
+            </div>
+            <button type="submit" class="btn btn-outline-info mb-2">Save motorcycle</button>
+        </form>
+    </div>
+    <footer class="footer">
+        <div class="container text-center">
+            2020 &copy; Motorcycle shop
+        </div>
+    </footer>
+</body>
+</html>

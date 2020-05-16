@@ -7,4 +7,6 @@ import java.util.List;
 public interface MotorcycleService {
 
     List<Motorcycle> findAll();
+
+    void save(Motorcycle motorcycle);
 }
