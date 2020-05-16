@@ -1,6 +1,5 @@
 package com.kucharek.motorcycleshop.data;
 
-import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -8,7 +7,7 @@ import javax.persistence.*;
 import java.time.Year;
 
 @Data
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor
 @Entity
 @Table
 public class Motorcycle {
