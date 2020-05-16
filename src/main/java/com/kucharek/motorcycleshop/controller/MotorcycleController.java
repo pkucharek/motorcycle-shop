@@ -21,6 +21,6 @@ public class MotorcycleController {
     public String listMotorcycles(Model model) {
         List<Motorcycle> motorcycles = motorcycleService.findAll();
         model.addAttribute("motorcycles", motorcycles);
-        return "home";
+        return "motorcycles/list";
     }
 }
