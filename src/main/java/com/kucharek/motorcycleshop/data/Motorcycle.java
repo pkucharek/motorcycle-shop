@@ -13,7 +13,7 @@ import java.time.Year;
 public class Motorcycle {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private long id;
 
