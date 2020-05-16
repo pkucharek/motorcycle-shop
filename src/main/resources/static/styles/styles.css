@@ -16,3 +16,7 @@ body {
   background-color: rgb(33, 37, 41);
   color: #FFFFFF;
 }
+
+.header {
+    text-decoration: none !important;
+}
