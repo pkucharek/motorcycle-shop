@@ -16,8 +16,9 @@
 </head>
 <body>
     <div class="container text-center">
-        <h1 class="display-1 my-5">Motorcycle shop</h1>
-
+        <a th:href="@{/}" class="header text-dark">
+            <h1 class="display-1 my-5">Motorcycle shop</h1>
+        </a>
         <p class="h3 my-3">Add motorcycle</p>
         <form action="#" th:action="@{/motorcycles/save}"
                          th:object="${motorcycle}" method="POST">
