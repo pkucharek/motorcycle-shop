@@ -19,7 +19,7 @@ public class Motorcycle {
     private long id;
 
     @Column
-    @NotBlank(message = "Brand is obligatory")
+    @NotBlank(message = "{motorcycle.brand.notBlank}")
     private String brand;
 
     @Column
