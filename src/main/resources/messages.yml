@@ -11,3 +11,6 @@ motorcycle:
     notBlank: Color is obligatory
   type:
     notBlank: Type is obligatory
+  productionYear:
+    notNull: Production year is obligatory
+    productionYearConstraint: Production year should be number between 1885 and current year
