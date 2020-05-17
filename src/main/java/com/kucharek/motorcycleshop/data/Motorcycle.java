@@ -47,9 +47,9 @@ public class Motorcycle {
     private byte cylinders;
 
     @Column
-    @NotNull(message = "Engine capacity is obligatory")
-    @Min(value = 1, message = "Engine capacity should be between 1 and 3000")
-    @Max(value = 3000, message = "Engine capacity should be between 1 and 3000")
+    @NotNull(message = "{motorcycle.engineCapacity.notNull}")
+    @Min(value = 1, message = "{motorcycle.engineCapacity.badValue}")
+    @Max(value = 3000, message = "{motorcycle.engineCapacity.badValue}")
     private short engineCapacity;
 
 }

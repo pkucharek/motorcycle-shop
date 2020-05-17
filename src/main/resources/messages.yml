@@ -17,3 +17,7 @@ motorcycle:
   cylinders:
     notNull: Cylinders are obligatory
     badValue: Cylinders number should be between 1 and 12
+  engineCapacity:
+    notNull: Engine capacity is obligatory
+    badValue: Engine capacity should be between 1 and 3000
+
