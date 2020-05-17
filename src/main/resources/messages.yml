@@ -7,3 +7,5 @@ motorcycle:
     notBlank: Brand is obligatory
   model:
     notBlank: Model is obligatory
+  color:
+    notBlank: Color is obligatory

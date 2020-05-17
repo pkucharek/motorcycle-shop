@@ -27,7 +27,7 @@ public class Motorcycle {
     private String model;
 
     @Column
-    @NotBlank(message = "Color is obligatory")
+    @NotBlank(message = "{motorcycle.color.notBlank}")
     private String color;
 
     @Column
