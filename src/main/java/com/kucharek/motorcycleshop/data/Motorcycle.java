@@ -41,9 +41,9 @@ public class Motorcycle {
     private Year productionYear;
 
     @Column
-    @NotNull(message = "Cylinders are obligatory")
-    @Min(value = 1, message = "Cylinders number should be between 1 and 12")
-    @Max(value = 12, message = "Cylinders number should be between 1 and 12")
+    @NotNull(message = "{motorcycle.cylinders.notNull}")
+    @Min(value = 1, message = "{motorcycle.cylinders.badValue}")
+    @Max(value = 12, message = "{motorcycle.cylinders.badValue}")
     private byte cylinders;
 
     @Column

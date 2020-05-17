@@ -14,3 +14,6 @@ motorcycle:
   productionYear:
     notNull: Production year is obligatory
     productionYearConstraint: Production year should be number between 1885 and current year
+  cylinders:
+    notNull: Cylinders are obligatory
+    badValue: Cylinders number should be between 1 and 12
