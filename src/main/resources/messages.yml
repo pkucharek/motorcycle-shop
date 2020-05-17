@@ -5,3 +5,5 @@ typeMismatch:
 motorcycle:
   brand:
     notBlank: Brand is obligatory
+  model:
+    notBlank: Model is obligatory
