@@ -1,3 +1,23 @@
 typeMismatch:
   motorcycle:
     productionYear: Production year should be number between 1885 and current year
+
+motorcycle:
+  brand:
+    notBlank: Brand is obligatory
+  model:
+    notBlank: Model is obligatory
+  color:
+    notBlank: Color is obligatory
+  type:
+    notBlank: Type is obligatory
+  productionYear:
+    notNull: Production year is obligatory
+    productionYearConstraint: Production year should be number between 1885 and current year
+  cylinders:
+    notNull: Cylinders are obligatory
+    badValue: Cylinders number should be between 1 and 12
+  engineCapacity:
+    notNull: Engine capacity is obligatory
+    badValue: Engine capacity should be between 1 and 3000
+

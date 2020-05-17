@@ -6,6 +6,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.core.io.ClassPathResource;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
 import java.io.IOException;
 import java.util.Properties;
@@ -25,5 +26,12 @@ public class MessageSourceConfiguration {
         YamlPropertiesFactoryBean bean = new YamlPropertiesFactoryBean();
         bean.setResources(new ClassPathResource("messages.yml"));
         return bean.getObject();
+    }
+
+    @Bean
+    public LocalValidatorFactoryBean getValidator() throws IOException {
+        LocalValidatorFactoryBean bean = new LocalValidatorFactoryBean();
+        bean.setValidationMessageSource(messageSource());
+        return bean;
     }
 }

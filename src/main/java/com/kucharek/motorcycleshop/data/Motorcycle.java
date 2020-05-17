@@ -19,37 +19,37 @@ public class Motorcycle {
     private long id;
 
     @Column
-    @NotBlank(message = "Brand is obligatory")
+    @NotBlank(message = "{motorcycle.brand.notBlank}")
     private String brand;
 
     @Column
-    @NotBlank(message = "Model is obligatory")
+    @NotBlank(message = "{motorcycle.model.notBlank}")
     private String model;
 
     @Column
-    @NotBlank(message = "Color is obligatory")
+    @NotBlank(message = "{motorcycle.color.notBlank}")
     private String color;
 
     @Column
-    @NotBlank(message = "Type is obligatory")
+    @NotBlank(message = "{motorcycle.type.notBlank}")
     private String type;
 
     @Convert(converter = YearAttributeConverter.class)
     @Column(name = "production_year")
-    @NotNull(message = "Production year is obligatory")
-    @ProductionYearConstraint(message = "Production year should be number between 1885 and current year")
+    @NotNull(message = "{motorcycle.productionYear.notNull}")
+    @ProductionYearConstraint(message = "{motorcycle.productionYear.productionYearConstraint}")
     private Year productionYear;
 
     @Column
-    @NotNull(message = "Cylinders are obligatory")
-    @Min(value = 1, message = "Cylinders number should be between 1 and 12")
-    @Max(value = 12, message = "Cylinders number should be between 1 and 12")
+    @NotNull(message = "{motorcycle.cylinders.notNull}")
+    @Min(value = 1, message = "{motorcycle.cylinders.badValue}")
+    @Max(value = 12, message = "{motorcycle.cylinders.badValue}")
     private byte cylinders;
 
     @Column
-    @NotNull(message = "Engine capacity is obligatory")
-    @Min(value = 1, message = "Engine capacity should be between 1 and 3000")
-    @Max(value = 3000, message = "Engine capacity should be between 1 and 3000")
+    @NotNull(message = "{motorcycle.engineCapacity.notNull}")
+    @Min(value = 1, message = "{motorcycle.engineCapacity.badValue}")
+    @Max(value = 3000, message = "{motorcycle.engineCapacity.badValue}")
     private short engineCapacity;
 
 }
