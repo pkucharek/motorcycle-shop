@@ -1,13 +1,14 @@
 package com.kucharek.motorcycleshop.configuration;
 
-import net.rakugakibox.util.YamlResourceBundle;
+import org.springframework.beans.factory.config.YamlPropertiesFactoryBean;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.support.ResourceBundleMessageSource;
+import org.springframework.core.io.ClassPathResource;
 
 import java.io.IOException;
-import java.util.ResourceBundle;
+import java.util.Properties;
 
 @Configuration
 public class MessageSourceConfiguration {
@@ -15,15 +16,14 @@ public class MessageSourceConfiguration {
     @Bean
     public MessageSource messageSource() throws IOException {
         ResourceBundleMessageSource messageSource = new ResourceBundleMessageSource();
-        messageSource.setBasename("messages");
+        messageSource.setCommonMessages(yamlProperties());
         return messageSource;
     }
 
     @Bean
-    public ResourceBundle resourceBundle() throws IOException {
-        return ResourceBundle.getBundle(
-                "com.kucharek.motorcycleshop.messages",
-                YamlResourceBundle.Control.INSTANCE
-        );
+    public Properties yamlProperties() throws IOException {
+        YamlPropertiesFactoryBean bean = new YamlPropertiesFactoryBean();
+        bean.setResources(new ClassPathResource("messages.yml"));
+        return bean.getObject();
     }
 }
