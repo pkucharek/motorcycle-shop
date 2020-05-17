@@ -1,3 +1,7 @@
 typeMismatch:
   motorcycle:
     productionYear: Production year should be number between 1885 and current year
+
+motorcycle:
+  brand:
+    notBlank: Brand is obligatory
