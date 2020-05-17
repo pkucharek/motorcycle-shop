@@ -37,7 +37,7 @@ public class Motorcycle {
     @Convert(converter = YearAttributeConverter.class)
     @Column(name = "production_year")
     @NotNull(message = "Production year is obligatory")
-    @ProductionYearConstraint(message = "Production year should be between 1885 and current year")
+    @ProductionYearConstraint(message = "Production year should be number between 1885 and current year")
     private Year productionYear;
 
     @Column
