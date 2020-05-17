@@ -1,0 +1,3 @@
+typeMismatch:
+  motorcycle:
+    productionYear: Production year should be between 1885 and current year
