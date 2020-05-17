@@ -21,6 +21,15 @@
             <h1 class="display-1 my-5">Motorcycle shop</h1>
         </a>
         <p class="h3 my-3">Sign in</p>
+        <form th:action="@{/login}" method="POST">
+            <div class="row">
+                <div class="col-4"></div>
+                <input type="text" id="username" name="username"
+                       class="form-control my-2 col-4 align-center"
+                       placeholder="Username">
+                <div class="col-4"></div>
+            </div>
+        </form>
     </div>
     <footer class="footer">
         <div class="container text-center">
