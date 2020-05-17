@@ -31,7 +31,7 @@ public class Motorcycle {
     private String color;
 
     @Column
-    @NotBlank(message = "Type is obligatory")
+    @NotBlank(message = "{motorcycle.type.notBlank}")
     private String type;
 
     @Convert(converter = YearAttributeConverter.class)

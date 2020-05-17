@@ -9,3 +9,5 @@ motorcycle:
     notBlank: Model is obligatory
   color:
     notBlank: Color is obligatory
+  type:
+    notBlank: Type is obligatory
