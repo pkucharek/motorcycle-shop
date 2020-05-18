@@ -42,6 +42,12 @@
                     <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Logout</button>
                 </form>
             </ul>
+            <ul class="navbar-nav ml-auto" sec:authorize="isAnonymous()">
+                <a th:href="@{/login}"
+                   class="btn btn-outline-light my-2 my-sm-0">
+                    Login
+                </a>
+            </ul>
         </div>
     </nav>
 
