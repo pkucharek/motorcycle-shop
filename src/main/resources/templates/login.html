@@ -21,6 +21,13 @@
             <h1 class="display-1 my-5">Motorcycle shop</h1>
         </a>
         <p class="h3 my-3">Sign in</p>
+        <div class="row" th:if="${param.error}">
+            <div class="col-4"></div>
+            <div class="col-4 text-danger">
+                Login unsuccessful. Please check you username and password.
+            </div>
+            <div class="col-4"></div>
+        </div>
         <form th:action="@{/login}" method="POST">
             <div class="row">
                 <div class="col-4"></div>
