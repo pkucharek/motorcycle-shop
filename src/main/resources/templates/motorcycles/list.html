@@ -36,14 +36,16 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
         </div>
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+            <ul class="navbar-nav ml-auto" sec:authorize="isAuthenticated()">
+                <form class="form-inline my-2 my-lg-0" method="POST" th:action="@{/logout}">
+                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Logout</button>
+                </form>
+            </ul>
+        </div>
     </nav>
 
     <div class="container text-center mt-3">
-        <div sec:authorize="isAuthenticated()">
-            <form method="POST" th:action="@{/logout}">
-                <input type="submit" value="Logout">
-            </form>
-        </div>
         <table class="table table-striped mx-auto">
             <thead class="thead-dark">
                 <tr>
