@@ -39,6 +39,7 @@
         </div>
         <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
             <ul class="navbar-nav ml-auto" sec:authorize="isAuthenticated()">
+                <span class="navbar-text mr-4 text-white" sec:authentication="name">Bob</span>
                 <form class="form-inline my-2 my-lg-0" method="POST" th:action="@{/logout}">
                     <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Logout</button>
                 </form>
