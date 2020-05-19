@@ -1,4 +1,4 @@
-package com.kucharek.motorcycleshop.web;
+package com.kucharek.motorcycleshop.configuration;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
