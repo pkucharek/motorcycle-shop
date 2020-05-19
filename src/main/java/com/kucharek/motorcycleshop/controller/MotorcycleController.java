@@ -30,7 +30,7 @@ public class MotorcycleController {
     @GetMapping("/showFormForAdd")
     public String showFormForAdd(Model model) {
         model.addAttribute("motorcycle", new Motorcycle());
-        return "motorcycles/form";
+        return "motorcycles/add-motorcycle-form";
     }
 
     @PostMapping("/save")
