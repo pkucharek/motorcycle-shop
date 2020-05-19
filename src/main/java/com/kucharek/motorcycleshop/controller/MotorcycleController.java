@@ -24,13 +24,13 @@ public class MotorcycleController {
     public String listMotorcycles(Model model) {
         List<Motorcycle> motorcycles = motorcycleService.findAll();
         model.addAttribute("motorcycles", motorcycles);
-        return "motorcycles/list";
+        return "motorcycles/list-motorcycles";
     }
 
     @GetMapping("/showFormForAdd")
     public String showFormForAdd(Model model) {
         model.addAttribute("motorcycle", new Motorcycle());
-        return "motorcycles/form";
+        return "motorcycles/add-motorcycle-form";
     }
 
     @PostMapping("/save")
