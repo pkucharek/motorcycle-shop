@@ -23,3 +23,10 @@ insert into motorcycle
 	(brand, model, color, type, production_year, cylinders, engine_capacity)
 values 
 	("Romet", "ZXT125", "red", "naked", 2020, 4, 125); 
+
+
+insert into users
+values
+('john', '{noop}john', 1),
+('mary', '{noop}mary', 1),
+('susan', '{noop}susan', 1);
