@@ -41,12 +41,12 @@
             <ul class="navbar-nav ml-auto" sec:authorize="isAuthenticated()">
                 <span class="navbar-text mr-4 text-white" sec:authentication="name">Bob</span>
                 <form class="form-inline my-2 my-lg-0" method="POST" th:action="@{/logout}">
-                    <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Logout</button>
+                    <button class="btn btn-outline-light my-2 my-sm-0 mx-2" type="submit">Logout</button>
                 </form>
             </ul>
             <ul class="navbar-nav ml-auto" sec:authorize="isAnonymous()">
                 <a th:href="@{/login}"
-                   class="btn btn-outline-light my-2 my-sm-0">
+                   class="btn btn-outline-light my-2 my-sm-0 mx-2">
                     Login
                 </a>
             </ul>
