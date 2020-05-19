@@ -30,3 +30,10 @@ values
 ('john', '{noop}john', 1),
 ('mary', '{noop}mary', 1),
 ('susan', '{noop}susan', 1);
+
+
+insert into authorities
+values
+('john', 'ROLE_USER'),
+('mary', 'ROLE_USER'),
+('susan', 'ROLE_USER');
