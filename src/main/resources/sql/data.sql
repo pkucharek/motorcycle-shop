@@ -25,11 +25,12 @@ values
 	("Romet", "ZXT125", "red", "naked", 2020, 4, 125); 
 
 
-insert into users
+insert into users (username, password, first_name, last_name, email)
 values
-('john', '{bcrypt}$2y$12$GjGnKYqityw3yMTv5beQDuyRMzASYX2ObnnxXDz1uSg8pqyz8pVdO', 1),
-('mary', '{bcrypt}$2y$12$QmjaQIK/nOHWdRuF6nAxIOn8ZVQxdMQHJ8N23toWox.aYVB2.reEC', 1),
-('susan', '{bcrypt}$2y$12$/vsaTjiTSJE0HzogXZHLauxyiXyY7HOBoGUaI/5VXmp/H3RSiFxVW', 1);
+('john', '{bcrypt}$2y$12$GjGnKYqityw3yMTv5beQDuyRMzASYX2ObnnxXDz1uSg8pqyz8pVdO', 'John', 'Doe', 'john@company.com'),
+('mary', '{bcrypt}$2y$12$QmjaQIK/nOHWdRuF6nAxIOn8ZVQxdMQHJ8N23toWox.aYVB2.reEC', 'Mary', 'Public', 'mary@company.com'),
+('susan', '{bcrypt}$2y$12$/vsaTjiTSJE0HzogXZHLauxyiXyY7HOBoGUaI/5VXmp/H3RSiFxVW', 'Susan', 'Adams', 'susan@company.com'),
+('peter', '{bcrypt}$2y$12$y10KD/vLKmjM1GNYV/WJX.BBSRpuyX2yyuWLHSuXPuP5GWKgG8CU2', 'Peter', 'Johnson', 'piotr@company.com');
 
 
 insert into authorities
