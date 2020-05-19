@@ -33,8 +33,8 @@ values
 ('peter', '{bcrypt}$2y$12$y10KD/vLKmjM1GNYV/WJX.BBSRpuyX2yyuWLHSuXPuP5GWKgG8CU2', 'Peter', 'Johnson', 'piotr@company.com');
 
 
-insert into authorities
+insert into role (name)
 values
-('john', 'ROLE_USER'),
-('mary', 'ROLE_USER'),
-('susan', 'ROLE_USER');
+('ROLE_USER'),
+('ROLE_SELLER'),
+('ROLE_ADMIN');
