@@ -26,10 +26,9 @@ create table user (
   ,email varchar(50) not null
 );
 
-drop table if exists authorities;
-create table authorities (
-   username varchar(50) not null references users (username)
-  ,authority varchar(50) not null
-  ,unique key authorities_index_1 (username, authority)
+drop table if exists role;
+create table role (
+   id int(11) not null auto_increment primary key
+  ,name varchar(50) default null
 );
 
