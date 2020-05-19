@@ -1,4 +1,4 @@
-package com.kucharek.motorcycleshop.data;
+package com.kucharek.motorcycleshop.data.validation;
 
 import javax.validation.Constraint;
 import javax.validation.Payload;

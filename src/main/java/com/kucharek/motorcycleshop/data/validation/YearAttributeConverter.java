@@ -1,4 +1,4 @@
-package com.kucharek.motorcycleshop.data;
+package com.kucharek.motorcycleshop.data.validation;
 
 import javax.persistence.AttributeConverter;
 import javax.persistence.Converter;
