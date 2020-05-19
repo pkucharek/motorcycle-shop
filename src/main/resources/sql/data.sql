@@ -27,9 +27,9 @@ values
 
 insert into users
 values
-('john', '{noop}john', 1),
-('mary', '{noop}mary', 1),
-('susan', '{noop}susan', 1);
+('john', '{bcrypt}$2y$12$GjGnKYqityw3yMTv5beQDuyRMzASYX2ObnnxXDz1uSg8pqyz8pVdO', 1),
+('mary', '{bcrypt}$2y$12$QmjaQIK/nOHWdRuF6nAxIOn8ZVQxdMQHJ8N23toWox.aYVB2.reEC', 1),
+('susan', '{bcrypt}$2y$12$/vsaTjiTSJE0HzogXZHLauxyiXyY7HOBoGUaI/5VXmp/H3RSiFxVW', 1);
 
 
 insert into authorities
