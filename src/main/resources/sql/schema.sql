@@ -15,3 +15,18 @@ create table motorcycle (
   ,cylinders int(2) check (cylinders between 1 and 12)
   ,engine_capacity int(5) check (engine_capacity between 1 and 3000)
 );
+
+drop table if exists users;
+create table users (
+   username varchar(50) not null primary key
+  ,password char(68) not null
+  ,enabled tinyint(1) not null
+);
+
+drop table if exists authorities;
+create table authorities (
+   username varchar(50) not null references users (username)
+  ,authority varchar(50) not null
+  ,unique key authorities_index_1 (username, authority)
+);
+
