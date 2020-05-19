@@ -18,9 +18,12 @@ create table motorcycle (
 
 drop table if exists users;
 create table users (
-   username varchar(50) not null primary key
+  id int(11) not null auto_increment primary key
+  ,username varchar(50) not null
   ,password char(68) not null
-  ,enabled tinyint(1) not null
+  ,first_name varchar(50) not null
+  ,last_name varchar(50) not null
+  ,email varchar(50) not null
 );
 
 drop table if exists authorities;
