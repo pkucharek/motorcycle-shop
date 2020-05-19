@@ -22,3 +22,11 @@ create table users (
   ,password char(68) not null
   ,enabled tinyint(1) not null
 );
+
+drop table if exists authorities;
+create table authorities (
+   username varchar(50) not null references users (username)
+  ,authority varchar(50) not null
+  ,unique key authorities_index_1 (username, authority)
+);
+
