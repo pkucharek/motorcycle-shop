@@ -16,17 +16,37 @@ create table motorcycle (
   ,engine_capacity int(5) check (engine_capacity between 1 and 3000)
 );
 
-drop table if exists users;
-create table users (
-   username varchar(50) not null primary key
+drop table if exists user;
+create table user (
+  id int(11) not null auto_increment primary key
+  ,username varchar(50) not null
   ,password char(68) not null
-  ,enabled tinyint(1) not null
+  ,first_name varchar(50) not null
+  ,last_name varchar(50) not null
+  ,email varchar(50) not null
 );
 
-drop table if exists authorities;
-create table authorities (
-   username varchar(50) not null references users (username)
-  ,authority varchar(50) not null
-  ,unique key authorities_index_1 (username, authority)
+drop table if exists role;
+create table role (
+   id int(11) not null auto_increment primary key
+  ,name varchar(50) default null
+);
+
+drop table if exists users_roles;
+create table users_roles (
+   user_id int(11) not null
+  ,role_id int(11) not null
+
+  ,primary key (user_id, role_id)
+
+  ,key fk_role_idx (role_id)
+
+  ,constraint fk_user foreign key (user_id)
+  references user (id)
+  on delete no action on update no action
+
+  ,constraint fk_role foreign key (role_id)
+  references role (id)
+  on delete no action on update no action
 );
 
