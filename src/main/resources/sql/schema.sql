@@ -32,3 +32,21 @@ create table role (
   ,name varchar(50) default null
 );
 
+drop table if exists users_roles;
+create table users_roles (
+   user_id int(11) not null
+  ,role_id int(11) not null
+
+  ,primary key (user_id, role_id)
+
+  ,key fk_role_idx (role_id)
+
+  ,constraint fk_user foreign key (user_id)
+  references user (id)
+  on delete no action on update no action
+
+  ,constraint fk_role foreign key (role_id)
+  references role (id)
+  on delete no action on update no action
+);
+
