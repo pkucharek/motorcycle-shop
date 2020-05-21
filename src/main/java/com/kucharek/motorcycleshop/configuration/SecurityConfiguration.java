@@ -11,8 +11,6 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
-import javax.sql.DataSource;
-
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
@@ -21,13 +19,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     private UserService userService;
 
     @Autowired
-    private DataSource dataSource;
+    private CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-            .jdbcAuthentication()
-                .dataSource(dataSource);
+        auth.authenticationProvider(authenticationProvider());
     }
 
     @Override
@@ -41,6 +37,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .and()
                 .formLogin()
                     .loginPage("/login")
+                    .loginProcessingUrl("/authenticateUser")
+                    .successHandler(customAuthenticationSuccessHandler)
+                    .permitAll()
             .and()
                 .logout()
                     .logoutSuccessUrl("/");
