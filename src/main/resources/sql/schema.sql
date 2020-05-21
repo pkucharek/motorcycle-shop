@@ -16,6 +16,8 @@ create table motorcycle (
   ,engine_capacity int(5) check (engine_capacity between 1 and 3000)
 );
 
+drop table if exists users_roles;
+
 drop table if exists user;
 create table user (
   id int(11) not null auto_increment primary key
@@ -32,7 +34,7 @@ create table role (
   ,name varchar(50) default null
 );
 
-drop table if exists users_roles;
+
 create table users_roles (
    user_id int(11) not null
   ,role_id int(11) not null
