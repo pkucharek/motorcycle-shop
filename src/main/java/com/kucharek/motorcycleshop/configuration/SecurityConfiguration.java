@@ -1,4 +1,4 @@
-package com.kucharek.motorcycleshop.security;
+package com.kucharek.motorcycleshop.configuration;
 
 import com.kucharek.motorcycleshop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ import javax.sql.DataSource;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
     private UserService userService;
