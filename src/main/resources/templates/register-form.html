@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <link th:href="@{/styles/styles.css}" rel="stylesheet" />
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <title>Register</title>
+</head>
+<body>
+
+    <div class="container text-center">
+        <a th:href="@{/}" class="header text-dark">
+            <h1 class="display-1 my-5">Motorcycle shop</h1>
+        </a>
+    </div>
+
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" th:href="@{/motorcycles/showFormForAdd}">Add motorcycle</a>
+                </li>
+            </ul>
+        </div>
+        <div class="mx-auto order-0">
+            <a class="navbar-brand mx-auto" th:href="@{/}">Motorcycle shop</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+            <ul class="navbar-nav ml-auto" sec:authorize="isAuthenticated()">
+                <span class="navbar-text mr-4 text-white" sec:authentication="name">Bob</span>
+                <form class="form-inline my-2 my-lg-0" method="POST" th:action="@{/logout}">
+                    <button class="btn btn-outline-light my-2 my-sm-0 mx-2" type="submit">Logout</button>
+                </form>
+            </ul>
+            <ul class="navbar-nav ml-auto" sec:authorize="isAnonymous()">
+                <a th:href="@{/login}"
+                   class="btn btn-outline-light my-2 my-sm-0 mx-2">
+                    Login
+                </a>
+                <a th:href="@{/register}"
+                   class="btn btn-outline-light my-2 my-sm-0 mx-2">
+                    Register
+                </a>
+            </ul>
+        </div>
+    </nav>
+
+    <footer class="footer">
+        <div class="container text-center">
+            2020 &copy; Motorcycle shop
+        </div>
+    </footer>
+
+</body>
+</html>
