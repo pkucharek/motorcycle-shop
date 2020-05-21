@@ -21,3 +21,7 @@ motorcycle:
     notNull: Engine capacity is obligatory
     badValue: Engine capacity should be between 1 and 3000
 
+user:
+  notNull: Is required
+  validEmail: Invalid email
+
