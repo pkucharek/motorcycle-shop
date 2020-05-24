@@ -57,6 +57,62 @@
         </div>
     </nav>
 
+    <div class="container text-center mt-3">
+        <p class="h3 my-3">Registration form</p>
+        <form action="#" th:action="@{/register}"
+              th:object="${formUser}" method="POST">
+            <div class="row">
+                <div class="col-3"></div>
+                <input type="text" th:field="*{userName}"
+                       class="form-control my-2 col-6 align-center" placeholder="Username">
+                <div class="col-3 text-danger my-2"
+                     th:if="${#fields.hasErrors('userName')}"
+                     th:errors="*{userName}" ></div>
+            </div>
+            <div class="row">
+                <div class="col-3"></div>
+                <input type="password" th:field="*{password}"
+                       class="form-control my-2 col-6 align-center" placeholder="Password">
+                <div class="col-3 text-danger my-2"
+                     th:if="${#fields.hasErrors('password')}"
+                     th:errors="*{password}" ></div>
+            </div>
+            <div class="row">
+                <div class="col-3"></div>
+                <input type="password" th:field="*{matchingPassword}"
+                       class="form-control my-2 col-6 align-center" placeholder="Repeat Password">
+                <div class="col-3 text-danger my-2"
+                     th:if="${#fields.hasErrors('matchingPassword')}"
+                     th:errors="*{matchingPassword}" ></div>
+            </div>
+            <div class="row">
+                <div class="col-3"></div>
+                <input type="text" th:field="*{firstName}"
+                       class="form-control my-2 col-6 align-center" placeholder="First Name">
+                <div class="col-3 text-danger my-2"
+                     th:if="${#fields.hasErrors('firstName')}"
+                     th:errors="*{firstName}" ></div>
+            </div>
+            <div class="row">
+                <div class="col-3"></div>
+                <input type="text" th:field="*{lastName}"
+                       class="form-control my-2 col-6 align-center" placeholder="Last Name">
+                <div class="col-3 text-danger my-2"
+                     th:if="${#fields.hasErrors('lastName')}"
+                     th:errors="*{lastName}" ></div>
+            </div>
+            <div class="row">
+                <div class="col-3"></div>
+                <input type="text" th:field="*{email}"
+                       class="form-control my-2 col-6 align-center" placeholder="Email">
+                <div class="col-3 text-danger my-2"
+                     th:if="${#fields.hasErrors('email')}"
+                     th:errors="*{email}" ></div>
+            </div>
+            <button type="submit" class="btn btn-outline-info mb-2">Register</button>
+        </form>
+    </div>
+
     <footer class="footer">
         <div class="container text-center">
             2020 &copy; Motorcycle shop
