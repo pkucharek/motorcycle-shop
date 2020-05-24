@@ -30,8 +30,10 @@ public class FormUser {
     @NotBlank(message = "{user.notNull}")
     private String lastName;
 
-    @Pattern(regexp = "^[_A-Za-z0-9-\\\\+]+(\\\\.[_A-Za-z0-9-]+)*@" +
-                      "[A-Za-z0-9-]+(\\\\.[A-Za-z0-9]+)*(\\\\.[A-Za-z]{2,})$",
+    @Pattern(regexp = "^[a-z0-9!#$%&'*+/=?^_`{|}~-]+" +
+                      "(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@" +
+                      "(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+" +
+                      "[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$",
              message = "{user.validEmail}")
     private String email;
 }
