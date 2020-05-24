@@ -3,7 +3,6 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
-    <title>Add motorcycle</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -14,8 +13,10 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <title>Register</title>
 </head>
 <body>
+
     <div class="container text-center">
         <a th:href="@{/}" class="header text-dark">
             <h1 class="display-1 my-5">Motorcycle shop</h1>
@@ -57,72 +58,66 @@
     </nav>
 
     <div class="container text-center mt-3">
-        <p class="h3 my-3">Add motorcycle</p>
-        <form action="#" th:action="@{/motorcycles/save}"
-                         th:object="${motorcycle}" method="POST">
+        <p class="h3 my-3">Registration form</p>
+        <form action="#" th:action="@{/register}"
+              th:object="${formUser}" method="POST">
             <div class="row">
                 <div class="col-3"></div>
-                <input type="text" th:field="*{brand}"
-                       class="form-control my-3 col-6 align-center" placeholder="Brand">
-                <div class="col-3 text-danger my-3"
-                     th:if="${#fields.hasErrors('brand')}"
-                     th:errors="*{brand}" ></div>
+                <input type="text" th:field="*{userName}"
+                       class="form-control my-2 col-6 align-center" placeholder="Username">
+                <div class="col-3 text-danger my-2"
+                     th:if="${#fields.hasErrors('userName')}"
+                     th:errors="*{userName}" ></div>
             </div>
             <div class="row">
                 <div class="col-3"></div>
-                <input type="text" th:field="*{model}"
-                       class="form-control my-3 col-6 align-center" placeholder="Model">
-                <div class="col-3 text-danger my-3"
-                     th:if="${#fields.hasErrors('model')}"
-                     th:errors="*{model}" ></div>
+                <input type="password" th:field="*{password}"
+                       class="form-control my-2 col-6 align-center" placeholder="Password">
+                <div class="col-3 text-danger my-2"
+                     th:if="${#fields.hasErrors('password')}"
+                     th:errors="*{password}" ></div>
             </div>
             <div class="row">
                 <div class="col-3"></div>
-                <input type="text" th:field="*{color}"
-                       class="form-control my-3 col-6 align-center" placeholder="Color">
-                <div class="col-3 text-danger my-3"
-                     th:if="${#fields.hasErrors('color')}"
-                     th:errors="*{color}" ></div>
+                <input type="password" th:field="*{matchingPassword}"
+                       class="form-control my-2 col-6 align-center" placeholder="Repeat Password">
+                <div class="col-3 text-danger my-2"
+                     th:if="${#fields.hasErrors('matchingPassword')}"
+                     th:errors="*{matchingPassword}" ></div>
             </div>
             <div class="row">
                 <div class="col-3"></div>
-                <input type="text" th:field="*{type}"
-                       class="form-control my-3 col-6 align-center" placeholder="Type">
-                <div class="col-3 text-danger my-3"
-                     th:if="${#fields.hasErrors('type')}"
-                     th:errors="*{type}" ></div>
+                <input type="text" th:field="*{firstName}"
+                       class="form-control my-2 col-6 align-center" placeholder="First Name">
+                <div class="col-3 text-danger my-2"
+                     th:if="${#fields.hasErrors('firstName')}"
+                     th:errors="*{firstName}" ></div>
             </div>
             <div class="row">
                 <div class="col-3"></div>
-                <input type="text" th:field="*{productionYear}"
-                       class="form-control my-3 col-6 align-center" placeholder="Production Year">
-                <div class="col-3 text-danger my-3"
-                     th:if="${#fields.hasErrors('productionYear')}"
-                     th:errors="*{productionYear}" ></div>
+                <input type="text" th:field="*{lastName}"
+                       class="form-control my-2 col-6 align-center" placeholder="Last Name">
+                <div class="col-3 text-danger my-2"
+                     th:if="${#fields.hasErrors('lastName')}"
+                     th:errors="*{lastName}" ></div>
             </div>
             <div class="row">
                 <div class="col-3"></div>
-                <input type="text" th:field="*{cylinders}"
-                       class="form-control my-3 col-6 align-center" placeholder="Cylinders">
-                <div class="col-3 text-danger my-3"
-                     th:if="${#fields.hasErrors('cylinders')}"
-                     th:errors="*{cylinders}" ></div>
+                <input type="text" th:field="*{email}"
+                       class="form-control my-2 col-6 align-center" placeholder="Email">
+                <div class="col-3 text-danger my-2"
+                     th:if="${#fields.hasErrors('email')}"
+                     th:errors="*{email}" ></div>
             </div>
-            <div class="row">
-                <div class="col-3"></div>
-                <input type="text" th:field="*{engineCapacity}"
-                       class="form-control my-3 col-6 align-center" placeholder="Engine Capacity">
-                <div class="col-3 text-danger my-3"
-                     th:if="${#fields.hasErrors('engineCapacity')}"
-                     th:errors="*{engineCapacity}" ></div>
-            </div>
-            <button type="submit" class="btn btn-outline-info mb-2">Save motorcycle</button>
+            <button type="submit" class="btn btn-outline-info mb-2">Register</button>
         </form>
     </div>
+
     <footer class="footer">
         <div class="container text-center">
             2020 &copy; Motorcycle shop
         </div>
     </footer>
+
 </body>
 </html>

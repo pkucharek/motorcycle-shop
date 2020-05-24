@@ -1,26 +1,29 @@
-package com.kucharek.motorcycleshop.security;
+package com.kucharek.motorcycleshop.configuration;
 
+import com.kucharek.motorcycleshop.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
-
-import javax.sql.DataSource;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfig extends WebSecurityConfigurerAdapter {
+public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
     @Autowired
-    private DataSource dataSource;
+    private UserService userService;
+
+    @Autowired
+    private CustomAuthenticationSuccessHandler customAuthenticationSuccessHandler;
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth
-            .jdbcAuthentication()
-                .dataSource(dataSource);
+        auth.authenticationProvider(authenticationProvider());
     }
 
     @Override
@@ -34,8 +37,24 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .and()
                 .formLogin()
                     .loginPage("/login")
+                    .loginProcessingUrl("/authenticateUser")
+                    .successHandler(customAuthenticationSuccessHandler)
+                    .permitAll()
             .and()
                 .logout()
                     .logoutSuccessUrl("/");
+    }
+
+    @Bean
+    public BCryptPasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder();
+    }
+
+    @Bean
+    public DaoAuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider auth = new DaoAuthenticationProvider();
+        auth.setUserDetailsService(userService);
+        auth.setPasswordEncoder(passwordEncoder());
+        return auth;
     }
 }
