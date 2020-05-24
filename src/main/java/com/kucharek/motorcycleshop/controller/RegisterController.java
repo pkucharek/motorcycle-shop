@@ -23,7 +23,7 @@ public class RegisterController {
     @GetMapping
     public String showRegisterPage(Model model) {
         model.addAttribute("formUser", new FormUser());
-        return "register-form";
+        return "registration-form";
     }
 
     @PostMapping
@@ -31,7 +31,7 @@ public class RegisterController {
                                           BindingResult bindingResult,
                                           Model model) {
         if (bindingResult.hasErrors()) {
-            return "register-form";
+            return "registration-form";
         }
 
         User existing = userService.findByUserName(formUser.getUserName());
@@ -39,7 +39,7 @@ public class RegisterController {
         if (existing != null) {
             model.addAttribute("formUser", new FormUser());
             model.addAttribute("registerError", "Username already exists");
-            return "register-form";
+            return "registration-form";
         }
 
         userService.save(formUser);
