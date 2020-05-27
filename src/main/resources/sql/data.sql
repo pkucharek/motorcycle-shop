@@ -2,35 +2,35 @@ use motorcycle_shop;
 insert into motorcycle
 	(brand, model, color, type, production_year, cylinders, engine_capacity)
 values 
-	("Yamaha", "Fazer", "black", "standard", 1999, 4, 600);
+	("Yamaha", "Fazer", "czarny", "szosowo-turystyczny", 1999, 4, 600);
     
 insert into motorcycle
 	(brand, model, color, type, production_year, cylinders, engine_capacity)
 values 
-	("Honda", "Cbr", "orange", "sport bike", 2018, 6, 1000);
+	("Honda", "Cbr", "pomarańczowy", "sportowy", 2018, 6, 1000);
     
 insert into motorcycle
 	(brand, model, color, type, production_year, cylinders, engine_capacity)
 values 
-	("Harley-Davidson", "Street Rod", "black", "cruiser", 2020, 6, 800);
+	("Harley-Davidson", "Street Rod", "czarny", "cruiser", 2020, 6, 800);
     
 insert into motorcycle
 	(brand, model, color, type, production_year, cylinders, engine_capacity)
 values 
-	("Suzuki", "Gladius", "white-blue", "naked", 2016, 4, 650);
+	("Suzuki", "Gladius", "biało-niebieski", "naked", 2016, 4, 650);
 
 insert into motorcycle
 	(brand, model, color, type, production_year, cylinders, engine_capacity)
 values 
-	("Romet", "ZXT125", "red", "naked", 2020, 4, 125); 
+	("Romet", "ZXT125", "czerwony", "naked", 2020, 4, 125); 
 
 
 insert into user (username, password, first_name, last_name, email)
 values
-('john', '$2y$12$GjGnKYqityw3yMTv5beQDuyRMzASYX2ObnnxXDz1uSg8pqyz8pVdO', 'John', 'Doe', 'john@company.com'),
-('mary', '$2y$12$QmjaQIK/nOHWdRuF6nAxIOn8ZVQxdMQHJ8N23toWox.aYVB2.reEC', 'Mary', 'Public', 'mary@company.com'),
-('susan', '$2y$12$/vsaTjiTSJE0HzogXZHLauxyiXyY7HOBoGUaI/5VXmp/H3RSiFxVW', 'Susan', 'Adams', 'susan@company.com'),
-('peter', '$2y$12$y10KD/vLKmjM1GNYV/WJX.BBSRpuyX2yyuWLHSuXPuP5GWKgG8CU2', 'Peter', 'Johnson', 'piotr@company.com');
+('jan', '$2y$12$TsEAMCX.eWcfRR6R1NHMDenK.q4dyM3aAOdyIILE4dbWLuxpMkY7m', 'Jan', 'Adamski', 'jan@company.com'),
+('maria', '$2y$12$iFoZb5xxjNIVBNfyq4RkCeJ4bWoPd6RpscrwOOFtJ.o6V82TqyrOS', 'Maria', 'Curie', 'maria@company.com'),
+('sandra', '$2y$12$XAmI9mYySg8Z7xsIGCuXouyTQpC00iDfAdCYCAf.Bal0C1YSsQAU6', 'Sandra', 'Malczyk', 'sandra@company.com'),
+('piotr', '$2y$12$FhERKd4oTbb3YR8lIi3TU.ACU35dDEmz.zoOKAzmngdz9ZnTnQNje', 'Piotr', 'Kucharek', 'piotr@company.com');
 
 
 insert into role (name)

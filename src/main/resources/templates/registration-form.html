@@ -13,13 +13,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <title>Register</title>
+    <title>Rejestracja</title>
 </head>
 <body>
 
     <div class="container text-center">
         <a th:href="@{/}" class="header text-dark">
-            <h1 class="display-1 my-5">Motorcycle shop</h1>
+            <h1 class="display-1 my-5">Sklep motocyklowy</h1>
         </a>
     </div>
 
@@ -27,12 +27,12 @@
         <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" th:href="@{/motorcycles/showFormForAdd}">Add motorcycle</a>
+                    <a class="nav-link" th:href="@{/motorcycles/showFormForAdd}">Dodaj motocykl</a>
                 </li>
             </ul>
         </div>
         <div class="mx-auto order-0">
-            <a class="navbar-brand mx-auto" th:href="@{/}">Motorcycle shop</a>
+            <a class="navbar-brand mx-auto" th:href="@{/}">Sklep motocyklowy</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -41,30 +41,30 @@
             <ul class="navbar-nav ml-auto" sec:authorize="isAuthenticated()">
                 <span class="navbar-text mr-4 text-white" sec:authentication="name">Bob</span>
                 <form class="form-inline my-2 my-lg-0" method="POST" th:action="@{/logout}">
-                    <button class="btn btn-outline-light my-2 my-sm-0 mx-2" type="submit">Logout</button>
+                    <button class="btn btn-outline-light my-2 my-sm-0 mx-2" type="submit">Wyloguj</button>
                 </form>
             </ul>
             <ul class="navbar-nav ml-auto" sec:authorize="isAnonymous()">
                 <a th:href="@{/login}"
                    class="btn btn-outline-light my-2 my-sm-0 mx-2">
-                    Login
+                    Logowanie
                 </a>
                 <a th:href="@{/register}"
                    class="btn btn-outline-light my-2 my-sm-0 mx-2">
-                    Register
+                    Rejestracja
                 </a>
             </ul>
         </div>
     </nav>
 
     <div class="container text-center mt-3">
-        <p class="h3 my-3">Registration form</p>
+        <p class="h3 my-3">Rejestracja</p>
         <form action="#" th:action="@{/register}"
               th:object="${formUser}" method="POST">
             <div class="row">
                 <div class="col-3"></div>
                 <input type="text" th:field="*{userName}"
-                       class="form-control my-2 col-6 align-center" placeholder="Username">
+                       class="form-control my-2 col-6 align-center" placeholder="Nazwa użytkownika">
                 <div class="col-3 text-danger my-2"
                      th:if="${#fields.hasErrors('userName')}"
                      th:errors="*{userName}" ></div>
@@ -72,7 +72,7 @@
             <div class="row">
                 <div class="col-3"></div>
                 <input type="password" th:field="*{password}"
-                       class="form-control my-2 col-6 align-center" placeholder="Password">
+                       class="form-control my-2 col-6 align-center" placeholder="Hasło">
                 <div class="col-3 text-danger my-2"
                      th:if="${#fields.hasErrors('password')}"
                      th:errors="*{password}" ></div>
@@ -80,7 +80,7 @@
             <div class="row">
                 <div class="col-3"></div>
                 <input type="password" th:field="*{matchingPassword}"
-                       class="form-control my-2 col-6 align-center" placeholder="Repeat Password">
+                       class="form-control my-2 col-6 align-center" placeholder="Powtórzone hasło">
                 <div class="col-3 text-danger my-2"
                      th:if="${#fields.hasErrors('matchingPassword')}"
                      th:errors="*{matchingPassword}" ></div>
@@ -88,7 +88,7 @@
             <div class="row">
                 <div class="col-3"></div>
                 <input type="text" th:field="*{firstName}"
-                       class="form-control my-2 col-6 align-center" placeholder="First Name">
+                       class="form-control my-2 col-6 align-center" placeholder="Imię">
                 <div class="col-3 text-danger my-2"
                      th:if="${#fields.hasErrors('firstName')}"
                      th:errors="*{firstName}" ></div>
@@ -96,7 +96,7 @@
             <div class="row">
                 <div class="col-3"></div>
                 <input type="text" th:field="*{lastName}"
-                       class="form-control my-2 col-6 align-center" placeholder="Last Name">
+                       class="form-control my-2 col-6 align-center" placeholder="Nazwisko">
                 <div class="col-3 text-danger my-2"
                      th:if="${#fields.hasErrors('lastName')}"
                      th:errors="*{lastName}" ></div>
@@ -109,13 +109,13 @@
                      th:if="${#fields.hasErrors('email')}"
                      th:errors="*{email}" ></div>
             </div>
-            <button type="submit" class="btn btn-outline-info mb-2">Register</button>
+            <button type="submit" class="btn btn-outline-info mb-2">Zarejestruj</button>
         </form>
     </div>
 
     <footer class="footer">
         <div class="container text-center">
-            2020 &copy; Motorcycle shop
+            2020 &copy; Sklep motocyklowy
         </div>
     </footer>
 

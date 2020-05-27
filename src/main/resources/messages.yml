@@ -1,27 +1,27 @@
 typeMismatch:
   motorcycle:
-    productionYear: Production year should be number between 1885 and current year
+    productionYear: Rok produkcji powinien być pomiędzy 1885 a aktualny rokiem
 
 motorcycle:
   brand:
-    notBlank: Brand is obligatory
+    notBlank: Marka jest obowiązkowa
   model:
-    notBlank: Model is obligatory
+    notBlank: Model jest obowiązkowy
   color:
-    notBlank: Color is obligatory
+    notBlank: Kolor jest obowiązkowy
   type:
-    notBlank: Type is obligatory
+    notBlank: Typ jest obowiązkowa
   productionYear:
-    notNull: Production year is obligatory
-    productionYearConstraint: Production year should be number between 1885 and current year
+    notNull: Rok produkcji jest obowiązkowy
+    productionYearConstraint: Rok produkcji powinien być liczbą pomiędzy 1885 a aktualny rokiem
   cylinders:
-    notNull: Cylinders are obligatory
-    badValue: Cylinders number should be between 1 and 12
+    notNull: Liczba cylindrów jest obowiązkowa
+    badValue: Liczba cylindrów powinna być pomiędzy 1 a 12
   engineCapacity:
-    notNull: Engine capacity is obligatory
-    badValue: Engine capacity should be between 1 and 3000
+    notNull: Pojemność silnika jest obowiązkowa
+    badValue: Pojemność silnika powinna być między 1 a 3000
 
 user:
-  notNull: Is required
-  validEmail: Invalid email
+  notNull: Pole jest obowiązkowe
+  validEmail: Email niepoprawny
 

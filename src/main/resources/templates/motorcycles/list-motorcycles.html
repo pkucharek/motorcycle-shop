@@ -13,12 +13,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <title>Motorcycle home page</title>
+    <title>Sklep motocyklowy - strona główna</title>
 </head>
 <body>
+
     <div class="container text-center">
         <a th:href="@{/}" class="header text-dark">
-            <h1 class="display-1 my-5">Motorcycle shop</h1>
+            <h1 class="display-1 my-5">Sklep motocyklowy</h1>
         </a>
     </div>
 
@@ -26,12 +27,12 @@
         <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" th:href="@{/motorcycles/showFormForAdd}">Add motorcycle</a>
+                    <a class="nav-link" th:href="@{/motorcycles/showFormForAdd}">Dodaj motocykl</a>
                 </li>
             </ul>
         </div>
         <div class="mx-auto order-0">
-            <a class="navbar-brand mx-auto" th:href="@{/}">Motorcycle shop</a>
+            <a class="navbar-brand mx-auto" th:href="@{/}">Sklep motocyklowy</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -40,17 +41,17 @@
             <ul class="navbar-nav ml-auto" sec:authorize="isAuthenticated()">
                 <span class="navbar-text mr-4 text-white" sec:authentication="name">Bob</span>
                 <form class="form-inline my-2 my-lg-0" method="POST" th:action="@{/logout}">
-                    <button class="btn btn-outline-light my-2 my-sm-0 mx-2" type="submit">Logout</button>
+                    <button class="btn btn-outline-light my-2 my-sm-0 mx-2" type="submit">Wyloguj</button>
                 </form>
             </ul>
             <ul class="navbar-nav ml-auto" sec:authorize="isAnonymous()">
                 <a th:href="@{/login}"
                    class="btn btn-outline-light my-2 my-sm-0 mx-2">
-                    Login
+                    Logowanie
                 </a>
                 <a th:href="@{/register}"
                    class="btn btn-outline-light my-2 my-sm-0 mx-2">
-                    Register
+                    Rejestracja
                 </a>
             </ul>
         </div>
@@ -61,13 +62,13 @@
             <thead class="thead-dark">
                 <tr>
                     <th>Id</th>
-                    <th>Brand</th>
+                    <th>Marka</th>
                     <th>Model</th>
-                    <th>Color</th>
-                    <th>Type</th>
-                    <th>Production year</th>
-                    <th>Cylinders</th>
-                    <th>Engine capacity</th>
+                    <th>Kolor</th>
+                    <th>Typ</th>
+                    <th>Rok produkcji</th>
+                    <th>Cylindry</th>
+                    <th>Pojemność silnika</th>
                 </tr>
             </thead>
             <tbody>
@@ -86,13 +87,13 @@
         </table>
         <a th:href="@{/motorcycles/showFormForAdd}"
             class="btn btn-outline-info m-3">
-            Add new motorcycle
+            Dodaj motocykl
         </a>
 
     </div>
     <footer class="footer">
         <div class="container text-center">
-            2020 &copy; Motorcycle shop
+            2020 &copy; Sklep motocyklowy
         </div>
     </footer>
 </body>
