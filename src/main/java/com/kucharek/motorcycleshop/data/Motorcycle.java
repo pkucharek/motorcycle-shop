@@ -21,35 +21,35 @@ public class Motorcycle {
     private long id;
 
     @Column
-    @NotBlank(message = "{motorcycle.brand.notBlank}")
+    @NotBlank(message = "{motorcycle.notBlankNotNull}")
     private String brand;
 
     @Column
-    @NotBlank(message = "{motorcycle.model.notBlank}")
+    @NotBlank(message = "{motorcycle.notBlankNotNull}")
     private String model;
 
     @Column
-    @NotBlank(message = "{motorcycle.color.notBlank}")
+    @NotBlank(message = "{motorcycle.notBlankNotNull}")
     private String color;
 
     @Column
-    @NotBlank(message = "{motorcycle.type.notBlank}")
+    @NotBlank(message = "{motorcycle.notBlankNotNull}")
     private String type;
 
     @Convert(converter = YearAttributeConverter.class)
     @Column(name = "production_year")
-    @NotNull(message = "{motorcycle.productionYear.notNull}")
+    @NotNull(message = "{motorcycle.notBlankNotNull}")
     @ProductionYearConstraint(message = "{motorcycle.productionYear.productionYearConstraint}")
     private Year productionYear;
 
     @Column
-    @NotNull(message = "{motorcycle.cylinders.notNull}")
+    @NotNull(message = "{motorcycle.notBlankNotNull}")
     @Min(value = 1, message = "{motorcycle.cylinders.badValue}")
     @Max(value = 12, message = "{motorcycle.cylinders.badValue}")
     private byte cylinders;
 
     @Column
-    @NotNull(message = "{motorcycle.engineCapacity.notNull}")
+    @NotNull(message = "{motorcycle.notBlankNotNull}")
     @Min(value = 1, message = "{motorcycle.engineCapacity.badValue}")
     @Max(value = 3000, message = "{motorcycle.engineCapacity.badValue}")
     private short engineCapacity;
