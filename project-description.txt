@@ -17,9 +17,16 @@ Funkcjonalności sklepu:
     - stan konta
     - ewentualne posiadane oferty sprzedaży
     - przycisk doładuj
-    - aktualne dane kontaktowe
+    - aktualne dane kontaktowe (brak możliwości aktualizacji danych)
 4. Strona główna aplikacji
-    - wyświetlenie listy aktualnych ofert
+    - wyświetlenie listy aktualnych ofert, dodatkowe możliwości:
+		1. Sortowanie wyników po:
+			a) roczniku
+			b) pojemności
+		2. Filtracja wyników po:
+			a) marce (np. pokaż motocykle konkretnej marki, może być kilka marek na raz)
+			b) kolor
+			c) typ
     - w daną oferte można kliknąć i przejść do pełnej oferty
 5. Podstrona oferty
     - W URL będzie znajdować się numer oferty
@@ -28,14 +35,5 @@ Funkcjonalności sklepu:
 6. Kupowanie motocykla
     - użytkownik może kupić motocykl tylko wtedy, gdy ma wystarczającą ilość środków
     - Gdy kupi motocykl, odpowiednia ilość środków zostaje mu zabrana i przelana na konto sprzedającego.
-    - Po zakupie motocykla oferta powinna zniknąć z głównej listy, ale powinna zostać w bazie danych
-7.
-1. Wyświetlenie listy dostępnych motocykli
-2. Sortowanie wyników po:
-    a) roczniku
-    b) pojemności
-3. Filtracja wyników po:
-    a) marce (np. pokaż motocykle konkretnej marki, może być kilka marek na raz)
-    b) kolor
-    c) typ
+    - Po zakupie motocykla oferta powinna zniknąć z głównej listy, ale powinna zostać w bazie danych (status wylaczona)
 
