@@ -3,22 +3,12 @@ typeMismatch:
     productionYear: Rok produkcji powinien być pomiędzy 1885 a aktualny rokiem
 
 motorcycle:
-  brand:
-    notBlank: Marka jest obowiązkowa
-  model:
-    notBlank: Model jest obowiązkowy
-  color:
-    notBlank: Kolor jest obowiązkowy
-  type:
-    notBlank: Typ jest obowiązkowa
+  notBlankNotNull: Pole jest obowiązkowe
   productionYear:
-    notNull: Rok produkcji jest obowiązkowy
     productionYearConstraint: Rok produkcji powinien być liczbą pomiędzy 1885 a aktualny rokiem
   cylinders:
-    notNull: Liczba cylindrów jest obowiązkowa
     badValue: Liczba cylindrów powinna być pomiędzy 1 a 12
   engineCapacity:
-    notNull: Pojemność silnika jest obowiązkowa
     badValue: Pojemność silnika powinna być między 1 a 3000
 
 user:
