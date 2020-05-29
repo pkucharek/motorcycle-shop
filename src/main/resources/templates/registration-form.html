@@ -40,6 +40,10 @@
         <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
             <ul class="navbar-nav ml-auto" sec:authorize="isAuthenticated()">
                 <span class="navbar-text mr-4 text-white" sec:authentication="name">Bob</span>
+                <a th:href="@{/user/panel}"
+                   class="btn btn-outline-light my-2 my-sm-0 mx-2">
+                    Panel użytkownika
+                </a>
                 <form class="form-inline my-2 my-lg-0" method="POST" th:action="@{/logout}">
                     <button class="btn btn-outline-light my-2 my-sm-0 mx-2" type="submit">Wyloguj</button>
                 </form>
