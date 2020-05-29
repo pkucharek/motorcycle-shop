@@ -42,6 +42,7 @@ public class UserServiceImpl implements UserService {
             .firstName(formUser.getFirstName())
             .lastName(formUser.getLastName())
             .email(formUser.getEmail())
+            .balance((long) 500)
             .roles(Arrays.asList(roleRepository.findRoleByName("ROLE_USER")))
                 .build();
 
@@ -67,5 +68,12 @@ public class UserServiceImpl implements UserService {
                 .map(role -> {
                     return new SimpleGrantedAuthority(role.getName());
                 }).collect(Collectors.toList());
+    }
+
+    @Override
+    public void chargeUser(String userName) {
+        User user = userRepository.findByUsername(userName);
+        user.setBalance(user.getBalance() + 500);
+        userRepository.save(user);
     }
 }

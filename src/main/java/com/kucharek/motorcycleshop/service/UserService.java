@@ -10,4 +10,6 @@ public interface UserService
     User findByUserName(String userName);
 
     void save(FormUser formUser);
+
+    void chargeUser(String userName);
 }
