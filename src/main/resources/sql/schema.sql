@@ -26,6 +26,8 @@ create table user (
   ,first_name varchar(50) not null
   ,last_name varchar(50) not null
   ,email varchar(50) not null
+  ,phone_number varchar(9) not null
+  ,balance int(10) not null
 );
 
 drop table if exists role;

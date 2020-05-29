@@ -72,8 +72,16 @@
                 <td th:text="|${user.firstName} ${user.lastName}|"></td>
             </tr>
             <tr>
+                <td>E-mail:</td>
+                <td th:text="${user.email}"></td>
+            </tr>
+            <tr>
+                <td>Numer telefonu:</td>
+                <td th:text="${user.phoneNumber}"></td>
+            </tr>
+            <tr>
                 <td>Stan konta</td>
-                <td th:text="|500 zł|"></td>
+                <td th:text="|${user.balance} zł|"></td>
             </tr>
             <tr>
                 <td colspan="2">
