@@ -3,7 +3,6 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
-    <title>Potwierdzenie rejestracji</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -14,6 +13,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <title>Panel użytkownika</title>
 </head>
 <body>
 
@@ -62,14 +62,34 @@
     </nav>
 
     <div class="container text-center mt-3">
-        <h4 class="text-success">
-            Rejestracja przebiegła pomyślnie.
-        </h4>
+        <table class="table">
+            <tr>
+                <td>Nazwa użytkownika:</td>
+                <td th:text="${user.username}"></td>
+            </tr>
+            <tr>
+                <td>Imię i nazwisko:</td>
+                <td th:text="|${user.firstName} ${user.lastName}|"></td>
+            </tr>
+            <tr>
+                <td>Stan konta</td>
+                <td th:text="|500 zł|"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a th:href="@{/charge}"
+                       class="btn btn-dark my-2 my-sm-0 mx-2">
+                        Doładuj konto
+                    </a>
+                </td>
+            </tr>
+        </table>
     </div>
     <footer class="footer">
         <div class="container text-center">
             2020 &copy; Sklep motocyklowy
         </div>
     </footer>
+
 </body>
 </html>

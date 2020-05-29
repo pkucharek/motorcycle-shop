@@ -32,6 +32,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
             .authorizeRequests()
                 .antMatchers("/motorcycles/showFormForAdd")
                     .hasRole("USER")
+                .antMatchers("/user/**")
+                    .authenticated()
                 .antMatchers("/", "/**")
                     .permitAll()
             .and()
