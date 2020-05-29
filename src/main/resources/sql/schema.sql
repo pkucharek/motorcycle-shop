@@ -54,3 +54,18 @@ create table users_roles (
   on delete no action on update no action
 );
 
+drop table if exists offer;
+
+create table offer (
+	 id int(11) not null primary key auto_increment
+    ,owner_id int(11) not null references user(id)
+    ,buyer_id int(11)
+		check (not (buyer_id = owner_id))
+    ,motorcycle_id int(11) not null references motorcycle(id)
+    ,submission_date datetime not null default current_timestamp
+    ,purchase_date datetime
+	,price int(10) not null
+    ,expire_date datetime
+    ,expired bool not null
+);
+
