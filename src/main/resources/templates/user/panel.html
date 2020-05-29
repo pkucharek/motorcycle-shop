@@ -62,7 +62,28 @@
     </nav>
 
     <div class="container text-center mt-3">
-        Panel użytkownika
+        <table class="table">
+            <tr>
+                <td>Nazwa użytkownika:</td>
+                <td th:text="${user.username}"></td>
+            </tr>
+            <tr>
+                <td>Imię i nazwisko:</td>
+                <td th:text="|${user.firstName} ${user.lastName}|"></td>
+            </tr>
+            <tr>
+                <td>Stan konta</td>
+                <td th:text="|500 zł|"></td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <a th:href="@{/charge}"
+                       class="btn btn-dark my-2 my-sm-0 mx-2">
+                        Doładuj konto
+                    </a>
+                </td>
+            </tr>
+        </table>
     </div>
     <footer class="footer">
         <div class="container text-center">
