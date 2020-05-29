@@ -25,12 +25,12 @@ values
 	("Romet", "ZXT125", "czerwony", "naked", 2020, 4, 125); 
 
 
-insert into user (username, password, first_name, last_name, email)
+insert into user (username, password, first_name, last_name, email, phone_number, balance)
 values
-('jan', '$2y$12$TsEAMCX.eWcfRR6R1NHMDenK.q4dyM3aAOdyIILE4dbWLuxpMkY7m', 'Jan', 'Adamski', 'jan@company.com'),
-('maria', '$2y$12$iFoZb5xxjNIVBNfyq4RkCeJ4bWoPd6RpscrwOOFtJ.o6V82TqyrOS', 'Maria', 'Curie', 'maria@company.com'),
-('sandra', '$2y$12$XAmI9mYySg8Z7xsIGCuXouyTQpC00iDfAdCYCAf.Bal0C1YSsQAU6', 'Sandra', 'Malczyk', 'sandra@company.com'),
-('piotr', '$2y$12$FhERKd4oTbb3YR8lIi3TU.ACU35dDEmz.zoOKAzmngdz9ZnTnQNje', 'Piotr', 'Kucharek', 'piotr@company.com');
+('jan', '$2y$12$TsEAMCX.eWcfRR6R1NHMDenK.q4dyM3aAOdyIILE4dbWLuxpMkY7m', 'Jan', 'Adamski', 'jan@company.com', '123456789', 500),
+('maria', '$2y$12$iFoZb5xxjNIVBNfyq4RkCeJ4bWoPd6RpscrwOOFtJ.o6V82TqyrOS', 'Maria', 'Curie', 'maria@company.com', '987654321', 500),
+('sandra', '$2y$12$XAmI9mYySg8Z7xsIGCuXouyTQpC00iDfAdCYCAf.Bal0C1YSsQAU6', 'Sandra', 'Malczyk', 'sandra@company.com', '123987456', 500),
+('piotr', '$2y$12$FhERKd4oTbb3YR8lIi3TU.ACU35dDEmz.zoOKAzmngdz9ZnTnQNje', 'Piotr', 'Kucharek', 'piotr@company.com', '789321456', 500);
 
 
 insert into role (name)
