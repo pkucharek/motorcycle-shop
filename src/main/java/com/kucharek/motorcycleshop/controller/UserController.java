@@ -27,4 +27,13 @@ public class UserController {
         return "user/panel";
     }
 
+    @GetMapping("/charge")
+    public String chargeUser(Principal principal, Model model) {
+        String username = principal.getName();
+        userService.chargeUser(username);
+        User user = userService.findByUserName(username);
+        model.addAttribute("user", user);
+        return "user/panel";
+    }
+
 }
