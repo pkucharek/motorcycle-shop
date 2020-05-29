@@ -113,6 +113,14 @@
                      th:if="${#fields.hasErrors('email')}"
                      th:errors="*{email}" ></div>
             </div>
+            <div class="row">
+                <div class="col-3"></div>
+                <input type="text" th:field="*{phoneNumber}"
+                       class="form-control my-2 col-6 align-center" placeholder="Numer telefonu">
+                <div class="col-3 text-danger my-2"
+                     th:if="${#fields.hasErrors('phoneNumber')}"
+                     th:errors="*{phoneNumber}" ></div>
+            </div>
             <button type="submit" class="btn btn-outline-info mb-2">Zarejestruj</button>
         </form>
     </div>
