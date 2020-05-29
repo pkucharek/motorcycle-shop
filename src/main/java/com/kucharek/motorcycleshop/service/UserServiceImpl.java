@@ -42,6 +42,7 @@ public class UserServiceImpl implements UserService {
             .firstName(formUser.getFirstName())
             .lastName(formUser.getLastName())
             .email(formUser.getEmail())
+            .balance((long) 500)
             .roles(Arrays.asList(roleRepository.findRoleByName("ROLE_USER")))
                 .build();
 
