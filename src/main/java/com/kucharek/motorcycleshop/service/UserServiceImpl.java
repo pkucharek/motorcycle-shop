@@ -43,6 +43,7 @@ public class UserServiceImpl implements UserService {
             .lastName(formUser.getLastName())
             .email(formUser.getEmail())
             .balance((long) 500)
+            .phoneNumber(formUser.getPhoneNumber())
             .roles(Arrays.asList(roleRepository.findRoleByName("ROLE_USER")))
                 .build();
 

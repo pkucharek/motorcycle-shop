@@ -14,4 +14,5 @@ motorcycle:
 user:
   notNull: Pole jest obowiązkowe
   validEmail: Email niepoprawny
+  validPhoneNumber: Numer telefonu musi mieć 9 cyfr
 

@@ -36,4 +36,7 @@ public class FormUser {
                       "[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$",
              message = "{user.validEmail}")
     private String email;
+
+    @Pattern(regexp = "^\\d{9}$", message = "{user.validPhoneNumber}")
+    private String phoneNumber;
 }
