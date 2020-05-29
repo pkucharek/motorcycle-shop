@@ -69,4 +69,11 @@ public class UserServiceImpl implements UserService {
                     return new SimpleGrantedAuthority(role.getName());
                 }).collect(Collectors.toList());
     }
+
+    @Override
+    public void chargeUser(String userName) {
+        User user = userRepository.findByUsername(userName);
+        user.setBalance(user.getBalance() + 500);
+        userRepository.save(user);
+    }
 }
