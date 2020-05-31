@@ -1,0 +1,50 @@
+package com.kucharek.motorcycleshop.data;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.*;
+import java.util.Date;
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Entity
+@Table
+public class Offer {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
+    private Long id;
+
+    @OneToOne
+    @JoinColumn(name = "owner_id")
+    private User owner;
+
+    @OneToOne
+    @JoinColumn(name = "buyer_id")
+    private User buyer;
+
+    @OneToOne
+    @JoinColumn(name = "motorcycle_id")
+    private Motorcycle motorcycle;
+
+    @Column(name = "submission_date")
+    private Date submissionDate;
+
+    @Column(name = "purchase_date")
+    private Date purchaseDate;
+
+    @Column
+    private Long price;
+
+    @Column(name = "expire_date")
+    private Date expireDate;
+
+    @Column
+    private boolean expired;
+
+
+}
