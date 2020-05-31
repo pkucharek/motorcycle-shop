@@ -60,12 +60,16 @@ create table offer (
 	 id int(11) not null primary key auto_increment
     ,owner_id int(11) not null references user(id)
     ,buyer_id int(11)
-		check (not (buyer_id = owner_id))
-    ,motorcycle_id int(11) not null references motorcycle(id)
+		references user(id)
+    ,motorcycle_id int(11) not null unique key references motorcycle(id)
     ,submission_date datetime not null default current_timestamp
-    ,purchase_date datetime
+    ,purchase_date date
 	,price int(10) not null
-    ,expire_date datetime
+    ,expire_date date
     ,expired bool not null
 );
+
+alter table offer
+	add constraint buyer_id_validation
+		check (not (buyer_id = owner_id));
 
