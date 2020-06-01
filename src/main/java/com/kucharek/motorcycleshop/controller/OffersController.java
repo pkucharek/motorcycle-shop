@@ -19,7 +19,7 @@ import java.util.List;
 @Slf4j
 @Controller
 @RequestMapping("/motorcycles")
-public class MotorcycleController {
+public class OffersController {
 
     @Autowired
     private MotorcycleService motorcycleService;
