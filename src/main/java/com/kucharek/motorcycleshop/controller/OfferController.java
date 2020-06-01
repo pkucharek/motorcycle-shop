@@ -30,13 +30,13 @@ public class OfferController {
         return "offer/list-offers";
     }
 
-    @GetMapping("/offer/showFormForAdd")
+    @GetMapping("/offers/showFormForAdd")
     public String showFormForAdd(Model model) {
         model.addAttribute("offer", new Offer());
         return "offer/add-offer-form";
     }
 
-    @PostMapping("/offer/save")
+    @PostMapping("/offers/save")
     public String saveOffer(@Valid Offer offer, Errors errors) {
         if (errors.hasErrors())
             return "offer/form";
