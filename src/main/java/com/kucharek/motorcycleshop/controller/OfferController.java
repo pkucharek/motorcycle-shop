@@ -18,7 +18,7 @@ import java.util.List;
 
 @Slf4j
 @Controller
-public class OffersController {
+public class OfferController {
 
     @Autowired
     private OfferService offerService;
