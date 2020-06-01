@@ -21,9 +21,6 @@ import java.util.List;
 public class OffersController {
 
     @Autowired
-    private MotorcycleService motorcycleService;
-
-    @Autowired
     private OfferService offerService;
 
     @GetMapping("/")
