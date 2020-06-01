@@ -18,7 +18,6 @@ import java.util.List;
 
 @Slf4j
 @Controller
-@RequestMapping("/motorcycles")
 public class OffersController {
 
     @Autowired
@@ -27,7 +26,7 @@ public class OffersController {
     @Autowired
     private OfferService offerService;
 
-    @GetMapping("/list")
+    @GetMapping("/")
     public String listOffers(Model model) {
         List<Offer> offers = offerService.findAll();
         model.addAttribute("offers", offers);
