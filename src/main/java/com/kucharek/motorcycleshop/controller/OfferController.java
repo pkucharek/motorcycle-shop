@@ -2,10 +2,13 @@ package com.kucharek.motorcycleshop.controller;
 
 import com.kucharek.motorcycleshop.data.Motorcycle;
 import com.kucharek.motorcycleshop.data.Offer;
+import com.kucharek.motorcycleshop.data.User;
 import com.kucharek.motorcycleshop.service.MotorcycleService;
 import com.kucharek.motorcycleshop.service.OfferService;
+import com.kucharek.motorcycleshop.service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
@@ -19,6 +22,9 @@ import java.util.List;
 @Slf4j
 @Controller
 public class OfferController {
+
+    @Autowired
+    private UserService userService;
 
     @Autowired
     private OfferService offerService;
@@ -37,9 +43,13 @@ public class OfferController {
     }
 
     @PostMapping("/offers/save")
-    public String saveOffer(@Valid Offer offer, Errors errors) {
+    public String saveOffer(@Valid Offer offer, Errors errors, Authentication auth) {
         if (errors.hasErrors())
             return "offer/form";
+
+        User user = userService.findByUserName(auth.getName());
+        offer.setOwner(user);
+        offer.setExpired(false);
 
         offerService.save(offer);
         return "redirect:/";
