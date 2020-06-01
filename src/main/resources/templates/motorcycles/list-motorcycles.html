@@ -62,39 +62,27 @@
     </nav>
 
     <div class="container text-center mt-3">
-        <table class="table table-striped mx-auto">
-            <thead class="thead-dark">
-                <tr>
-                    <th>Id</th>
-                    <th>Marka</th>
-                    <th>Model</th>
-                    <th>Kolor</th>
-                    <th>Typ</th>
-                    <th>Rok produkcji</th>
-                    <th>Cylindry</th>
-                    <th>Pojemność silnika</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr th:each="motorcycle : ${motorcycles}">
-                    <td th:text="${motorcycle.id}" ></td>
-                    <td th:text="${motorcycle.brand}" ></td>
-                    <td th:text="${motorcycle.model}" ></td>
-                    <td th:text="${motorcycle.color}" ></td>
-                    <td th:text="${motorcycle.type}" ></td>
-                    <td th:text="${motorcycle.productionYear}" ></td>
-                    <td th:text="${motorcycle.cylinders}" ></td>
-                    <td th:text="${motorcycle.engineCapacity}" ></td>
-                </tr>
-            </tbody>
-
-        </table>
+        <div th:each="offer : ${offers}" class="row mb-3 border-bottom">
+            <div class="col-4">
+                <h3>Właściciel oferty:</h3>
+                <span th:text="|${offer.owner.firstName} ${offer.owner.lastName}|"></span>
+            </div>
+            <div class="col-8">
+                <h3>Motocykl</h3>
+                <p th:text="|${offer.motorcycle.brand} ${offer.motorcycle.model}|"></p>
+                <p th:text="|Kolor: ${offer.motorcycle.color}|"></p>
+                <p th:text="|Typ: ${offer.motorcycle.type}|"></p>
+                <p th:text="|Rok produkcji: ${offer.motorcycle.productionYear}|"></p>
+                <p th:text="|Cylindry: ${offer.motorcycle.cylinders}|"></p>
+                <p th:text="|Pojemność silnika: ${offer.motorcycle.engineCapacity}|"></p>
+            </div>
+        </div>
         <a th:href="@{/motorcycles/showFormForAdd}"
             class="btn btn-outline-info m-3">
             Dodaj motocykl
         </a>
-
     </div>
+
     <footer class="footer">
         <div class="container text-center">
             2020 &copy; Sklep motocyklowy
