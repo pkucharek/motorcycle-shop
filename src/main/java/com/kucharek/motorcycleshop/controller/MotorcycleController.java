@@ -1,7 +1,10 @@
 package com.kucharek.motorcycleshop.controller;
 
 import com.kucharek.motorcycleshop.data.Motorcycle;
+import com.kucharek.motorcycleshop.data.Offer;
 import com.kucharek.motorcycleshop.service.MotorcycleService;
+import com.kucharek.motorcycleshop.service.OfferService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import javax.validation.Valid;
 import java.util.List;
 
+@Slf4j
 @Controller
 @RequestMapping("/motorcycles")
 public class MotorcycleController {
@@ -20,10 +24,13 @@ public class MotorcycleController {
     @Autowired
     private MotorcycleService motorcycleService;
 
+    @Autowired
+    private OfferService offerService;
+
     @GetMapping("/list")
-    public String listMotorcycles(Model model) {
-        List<Motorcycle> motorcycles = motorcycleService.findAll();
-        model.addAttribute("motorcycles", motorcycles);
+    public String listOffers(Model model) {
+        List<Offer> offers = offerService.findAll();
+        model.addAttribute("offers", offers);
         return "motorcycles/list-motorcycles";
     }
 
