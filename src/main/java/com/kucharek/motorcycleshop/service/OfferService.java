@@ -7,4 +7,6 @@ import java.util.List;
 public interface OfferService {
 
     List<Offer> findAll();
+
+    void save(Offer offer);
 }
