@@ -27,21 +27,21 @@ public class OffersController {
     public String listOffers(Model model) {
         List<Offer> offers = offerService.findAll();
         model.addAttribute("offers", offers);
-        return "motorcycles/list-motorcycles";
+        return "offer/list-offers";
     }
 
-    @GetMapping("/showFormForAdd")
+    @GetMapping("/offer/showFormForAdd")
     public String showFormForAdd(Model model) {
-        model.addAttribute("motorcycle", new Motorcycle());
-        return "motorcycles/add-motorcycle-form";
+        model.addAttribute("offer", new Offer());
+        return "offer/add-offer-form";
     }
 
-    @PostMapping("/save")
-    public String saveMotorcycle(@Valid Motorcycle motorcycle, Errors errors) {
+    @PostMapping("/offer/save")
+    public String saveOffer(@Valid Offer offer, Errors errors) {
         if (errors.hasErrors())
-            return "motorcycles/form";
+            return "offer/form";
 
-        motorcycleService.save(motorcycle);
-        return "redirect:/motorcycles/list";
+        offerService.save(offer);
+        return "redirect:/";
     }
 }
