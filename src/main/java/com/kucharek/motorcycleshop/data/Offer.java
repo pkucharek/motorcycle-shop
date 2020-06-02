@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -35,6 +36,7 @@ public class Offer {
     @JoinColumn(name = "buyer_id")
     private User buyer;
 
+    @Valid
     @OneToOne
     @JoinColumn(name = "motorcycle_id")
     private Motorcycle motorcycle;

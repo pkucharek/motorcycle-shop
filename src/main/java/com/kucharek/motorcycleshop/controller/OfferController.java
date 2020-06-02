@@ -45,7 +45,7 @@ public class OfferController {
     @PostMapping("/offers/save")
     public String saveOffer(@Valid Offer offer, Errors errors, Authentication auth) {
         if (errors.hasErrors())
-            return "offer/form";
+            return "offer/add-offer-form";
 
         User user = userService.findByUserName(auth.getName());
         offer.setOwner(user);
