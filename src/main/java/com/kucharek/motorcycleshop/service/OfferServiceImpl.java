@@ -23,6 +23,7 @@ public class OfferServiceImpl implements OfferService {
 
     @Override
     public void save(Offer offer) {
+        initializeOffer(offer);
         offerRepository.save(offer);
     }
 
