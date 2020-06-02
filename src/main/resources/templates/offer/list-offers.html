@@ -27,7 +27,7 @@
         <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" th:href="@{/motorcycles/showFormForAdd}">Dodaj motocykl</a>
+                    <a class="nav-link" th:href="@{/offers/showFormForAdd}">Dodaj ofertę</a>
                 </li>
             </ul>
         </div>
@@ -77,7 +77,7 @@
                 <p th:text="|Pojemność silnika: ${offer.motorcycle.engineCapacity}|"></p>
             </div>
         </div>
-        <a th:href="@{/motorcycles/showFormForAdd}"
+        <a th:href="@{/offers/showFormForAdd}"
             class="btn btn-outline-info m-3">
             Dodaj motocykl
         </a>

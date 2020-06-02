@@ -27,7 +27,7 @@
         <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link" th:href="@{/motorcycles/showFormForAdd}">Dodaj motocykl</a>
+                    <a class="nav-link" th:href="@{/offers/showFormForAdd}">Dodaj ofertę</a>
                 </li>
             </ul>
         </div>
@@ -63,63 +63,71 @@
 
     <div class="container text-center mt-3">
         <p class="h3 my-3">Dodaj motocykl</p>
-        <form action="#" th:action="@{/motorcycles/save}"
-                         th:object="${motorcycle}" method="POST">
+        <form action="#" th:action="@{/offers/save}"
+                         th:object="${offer}" method="POST">
             <div class="row">
                 <div class="col-3"></div>
-                <input type="text" th:field="*{brand}"
+                <input type="text" th:field="*{motorcycle.brand}"
                        class="form-control my-3 col-6 align-center" placeholder="Marka">
                 <div class="col-3 text-danger my-3"
-                     th:if="${#fields.hasErrors('brand')}"
-                     th:errors="*{brand}" ></div>
+                     th:if="${#fields.hasErrors('motorcycle.brand')}"
+                     th:errors="*{motorcycle.brand}" ></div>
             </div>
             <div class="row">
                 <div class="col-3"></div>
-                <input type="text" th:field="*{model}"
+                <input type="text" th:field="*{motorcycle.model}"
                        class="form-control my-3 col-6 align-center" placeholder="Model">
                 <div class="col-3 text-danger my-3"
-                     th:if="${#fields.hasErrors('model')}"
-                     th:errors="*{model}" ></div>
+                     th:if="${#fields.hasErrors('motorcycle.model')}"
+                     th:errors="*{motorcycle.model}" ></div>
             </div>
             <div class="row">
                 <div class="col-3"></div>
-                <input type="text" th:field="*{color}"
+                <input type="text" th:field="*{motorcycle.color}"
                        class="form-control my-3 col-6 align-center" placeholder="Kolor">
                 <div class="col-3 text-danger my-3"
-                     th:if="${#fields.hasErrors('color')}"
-                     th:errors="*{color}" ></div>
+                     th:if="${#fields.hasErrors('motorcycle.color')}"
+                     th:errors="*{motorcycle.color}" ></div>
             </div>
             <div class="row">
                 <div class="col-3"></div>
-                <input type="text" th:field="*{type}"
+                <input type="text" th:field="*{motorcycle.type}"
                        class="form-control my-3 col-6 align-center" placeholder="Typ">
                 <div class="col-3 text-danger my-3"
-                     th:if="${#fields.hasErrors('type')}"
-                     th:errors="*{type}" ></div>
+                     th:if="${#fields.hasErrors('motorcycle.type')}"
+                     th:errors="*{motorcycle.type}" ></div>
             </div>
             <div class="row">
                 <div class="col-3"></div>
-                <input type="text" th:field="*{productionYear}"
+                <input type="text" th:field="*{motorcycle.productionYear}"
                        class="form-control my-3 col-6 align-center" placeholder="Rok produkcji">
                 <div class="col-3 text-danger my-3"
-                     th:if="${#fields.hasErrors('productionYear')}"
-                     th:errors="*{productionYear}" ></div>
+                     th:if="${#fields.hasErrors('motorcycle.productionYear')}"
+                     th:errors="*{motorcycle.productionYear}" ></div>
             </div>
             <div class="row">
                 <div class="col-3"></div>
-                <input type="text" th:field="*{cylinders}"
+                <input type="text" th:field="*{motorcycle.cylinders}"
                        class="form-control my-3 col-6 align-center" placeholder="Ilość cylindrów">
                 <div class="col-3 text-danger my-3"
-                     th:if="${#fields.hasErrors('cylinders')}"
-                     th:errors="*{cylinders}" ></div>
+                     th:if="${#fields.hasErrors('motorcycle.cylinders')}"
+                     th:errors="*{motorcycle.cylinders}" ></div>
             </div>
             <div class="row">
                 <div class="col-3"></div>
-                <input type="text" th:field="*{engineCapacity}"
+                <input type="text" th:field="*{motorcycle.engineCapacity}"
                        class="form-control my-3 col-6 align-center" placeholder="Pojemność silnika">
                 <div class="col-3 text-danger my-3"
-                     th:if="${#fields.hasErrors('engineCapacity')}"
-                     th:errors="*{engineCapacity}" ></div>
+                     th:if="${#fields.hasErrors('motorcycle.engineCapacity')}"
+                     th:errors="*{motorcycle.engineCapacity}" ></div>
+            </div>
+            <div class="row">
+                <div class="col-3"></div>
+                <input type="text" th:field="*{price}"
+                       class="form-control my-3 col-6 align-center" placeholder="Cena">
+                <div class="col-3 text-danger my-3"
+                     th:if="${#fields.hasErrors('price')}"
+                     th:errors="*{price}" ></div>
             </div>
             <button type="submit" class="btn btn-outline-info mb-2">Dodaj</button>
         </form>
