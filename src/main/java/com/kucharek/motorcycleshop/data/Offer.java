@@ -6,6 +6,9 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.Valid;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -47,6 +50,9 @@ public class Offer {
     @Column(name = "purchase_date")
     private Date purchaseDate;
 
+    @NotNull(message = "{motorcycle.notBlankNotNull}")
+    @Min(value = 1, message = "Cena musi być większa niż 1 zł")
+    @Max(value = 999_999_999, message = "Cena musi być mniejsza niż 999 999 999 zł")
     @Column
     private Long price;
 
