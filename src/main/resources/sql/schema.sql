@@ -62,7 +62,7 @@ create table offer (
     ,buyer_id int(11)
 		references user(id)
     ,motorcycle_id int(11) not null unique key references motorcycle(id)
-    ,submission_date datetime not null default current_timestamp
+    ,submission_date date
     ,purchase_date date
 	,price int(10) not null
     ,expire_date date
