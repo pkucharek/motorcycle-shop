@@ -50,9 +50,9 @@ public class Offer {
     @Column(name = "purchase_date")
     private Date purchaseDate;
 
-    @NotNull(message = "{motorcycle.notBlankNotNull}")
-    @Min(value = 1, message = "Cena musi być większa niż 1 zł")
-    @Max(value = 999_999_999, message = "Cena musi być mniejsza niż 999 999 999 zł")
+    @NotNull(message = "{offer.notNull}")
+    @Min(value = 1, message = "{offer.price.min}")
+    @Max(value = 999_999_999, message = "{offer.price.max}")
     @Column
     private Long price;
 
