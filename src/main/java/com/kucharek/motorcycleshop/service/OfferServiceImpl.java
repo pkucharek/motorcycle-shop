@@ -26,18 +26,7 @@ public class OfferServiceImpl implements OfferService {
 
     @Override
     public void save(Offer offer) {
-        initializeOffer(offer);
         motorcycleService.save(offer.getMotorcycle());
         offerRepository.save(offer);
-    }
-
-    private void initializeOffer(Offer offer) {
-        Date submissionDate = new Date(System.currentTimeMillis());
-        offer.setSubmissionDate(submissionDate);
-
-        Calendar calendar = Calendar.getInstance();
-        calendar.add(Calendar.DATE, 30);
-        Date expiredDate = calendar.getTime();
-        offer.setExpireDate(expiredDate);
     }
 }

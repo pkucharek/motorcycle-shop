@@ -5,14 +5,22 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Calendar;
 import java.util.Date;
 
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
 @Entity
 @Table
 public class Offer {
+
+    public Offer() {
+        submissionDate = new Date(System.currentTimeMillis());
+
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(Calendar.DATE, 30);
+        expireDate = calendar.getTime();
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
