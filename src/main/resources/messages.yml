@@ -16,3 +16,8 @@ user:
   validEmail: Email niepoprawny
   validPhoneNumber: Numer telefonu musi mieć 9 cyfr
 
+offer:
+  notNull: Pole jest obowiązkowe
+  price:
+    min: Cena musi być większa niż 1 zł
+    max: Cena musi być mniejsza niż 999 999 999 zł
