@@ -16,6 +16,9 @@ public class OfferServiceImpl implements OfferService {
     @Autowired
     private OfferRepository offerRepository;
 
+    @Autowired
+    private MotorcycleService motorcycleService;
+
     @Override
     public List<Offer> findAll() {
         return offerRepository.findAll();
@@ -24,6 +27,7 @@ public class OfferServiceImpl implements OfferService {
     @Override
     public void save(Offer offer) {
         initializeOffer(offer);
+        motorcycleService.save(offer.getMotorcycle());
         offerRepository.save(offer);
     }
 
