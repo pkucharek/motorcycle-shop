@@ -1,6 +1,8 @@
 typeMismatch:
   motorcycle:
     productionYear: Rok produkcji powinien być pomiędzy 1885 a aktualny rokiem
+    cylinders: Liczba cylindrów powinna być pomiędzy 1 a 12
+    engineCapacity: Pojemność silnika powinna być między 1 a 3000
 
 motorcycle:
   notBlankNotNull: Pole jest obowiązkowe
