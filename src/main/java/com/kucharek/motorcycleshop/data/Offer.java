@@ -19,11 +19,11 @@ import java.util.Date;
 public class Offer {
 
     public Offer() {
-        submissionDate = new Date(System.currentTimeMillis());
+        submissionDate = Calendar.getInstance();
 
         Calendar calendar = Calendar.getInstance();
         calendar.add(Calendar.DATE, 30);
-        expireDate = calendar.getTime();
+        expireDate = calendar;
     }
 
     @Id
@@ -45,10 +45,10 @@ public class Offer {
     private Motorcycle motorcycle;
 
     @Column(name = "submission_date")
-    private Date submissionDate;
+    private Calendar submissionDate;
 
     @Column(name = "purchase_date")
-    private Date purchaseDate;
+    private Calendar purchaseDate;
 
     @NotNull(message = "{offer.notNull}")
     @Min(value = 1, message = "{offer.price.min}")
@@ -57,7 +57,7 @@ public class Offer {
     private Long price;
 
     @Column(name = "expire_date")
-    private Date expireDate;
+    private Calendar expireDate;
 
     @Column
     private boolean expired;
