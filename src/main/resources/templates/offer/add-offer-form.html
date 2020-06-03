@@ -108,7 +108,7 @@
             </div>
             <div class="row">
                 <div class="col-3"></div>
-                <input type="text" th:field="*{motorcycle.cylinders}"
+                <input type="text" th:field="*{motorcycle.cylinders}" id="cylinders"
                        class="form-control my-3 col-6 align-center" placeholder="Ilość cylindrów">
                 <div class="col-3 text-danger my-3"
                      th:if="${#fields.hasErrors('motorcycle.cylinders')}"
@@ -116,7 +116,7 @@
             </div>
             <div class="row">
                 <div class="col-3"></div>
-                <input type="text" th:field="*{motorcycle.engineCapacity}"
+                <input type="text" th:field="*{motorcycle.engineCapacity}" id="engineCapacity"
                        class="form-control my-3 col-6 align-center" placeholder="Pojemność silnika">
                 <div class="col-3 text-danger my-3"
                      th:if="${#fields.hasErrors('motorcycle.engineCapacity')}"
