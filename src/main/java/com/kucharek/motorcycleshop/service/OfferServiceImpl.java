@@ -29,4 +29,9 @@ public class OfferServiceImpl implements OfferService {
         motorcycleService.save(offer.getMotorcycle());
         offerRepository.save(offer);
     }
+
+    @Override
+    public Offer findById(int id) {
+        return offerRepository.findById((long) id).get();
+    }
 }
