@@ -65,7 +65,8 @@
         <div th:each="offer : ${offers}" class="row mb-3 border-bottom">
             <div class="col-4">
                 <h3>Właściciel oferty:</h3>
-                <span th:text="|${offer.owner.firstName} ${offer.owner.lastName}|"></span>
+                <span class="d-block" th:text="|${offer.owner.firstName} ${offer.owner.lastName}|"></span>
+                <a th:href="@{/offer/{id}(id=${offer.id})}" class="btn btn-outline-success m-2" >Przejdź do oferty</a>
             </div>
             <div class="col-8">
                 <h3>Motocykl</h3>
