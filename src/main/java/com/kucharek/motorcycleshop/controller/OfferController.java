@@ -1,9 +1,7 @@
 package com.kucharek.motorcycleshop.controller;
 
-import com.kucharek.motorcycleshop.data.Motorcycle;
 import com.kucharek.motorcycleshop.data.Offer;
 import com.kucharek.motorcycleshop.data.User;
-import com.kucharek.motorcycleshop.service.MotorcycleService;
 import com.kucharek.motorcycleshop.service.OfferService;
 import com.kucharek.motorcycleshop.service.UserService;
 import lombok.extern.slf4j.Slf4j;
