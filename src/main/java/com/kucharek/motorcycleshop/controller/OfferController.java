@@ -60,4 +60,12 @@ public class OfferController {
         return "offer/current-offer";
     }
 
+    @GetMapping("/offer/showDetailsToBuy/{id}")
+    public String getDetailsToBuy(Model model, @PathVariable int id, Authentication auth) {
+        Offer offer = offerService.findById(id);
+        model.addAttribute("offer", offer);
+        User user = userService.findByUserName(auth.getName());
+        model.addAttribute("user", user);
+        return "/offer/details-to-buy";
+    }
 }
