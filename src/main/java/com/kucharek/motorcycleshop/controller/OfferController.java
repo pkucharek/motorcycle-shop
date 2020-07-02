@@ -66,6 +66,10 @@ public class OfferController {
         model.addAttribute("offer", offer);
         User user = userService.findByUserName(auth.getName());
         model.addAttribute("user", user);
+        String offerTitle = "Szczegóły oferty " + offer.getId()
+                + " Motocykl " + offer.getMotorcycle().getBrand()
+                + " " + offer.getMotorcycle().getModel();
+        model.addAttribute("offerTitle", offerTitle);
         return "/offer/details-to-buy";
     }
 }
