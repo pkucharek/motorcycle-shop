@@ -36,6 +36,8 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                     .authenticated()
                 .antMatchers("/offer/buy/**")
                     .authenticated()
+                .antMatchers("/offer/showDetailsToBuy/**")
+                    .authenticated()
                 .antMatchers("/", "/**")
                     .permitAll()
             .and()
