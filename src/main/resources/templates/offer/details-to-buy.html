@@ -62,7 +62,10 @@
 </nav>
 
 <div class="container text-center mt-3">
-
+    <p th:text="|Kupujesz motocykl ${offer.motorcycle.brand} ${offer.motorcycle.model}|"></p>
+    <p th:text="|Twój stan konta: ${user.balance}|"></p>
+    <p th:text="|Cena motocykla: ${offer.price}|"></p>
+    <p th:text="|Stan Twojego konta po zakupie: ${balanceAfterPurchase}|"></p>
 </div>
 
 <footer class="footer">
