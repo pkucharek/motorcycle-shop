@@ -62,6 +62,13 @@
     </nav>
 
     <div class="container text-center mt-3">
+        <div class="row" th:if="${(param.state != null) and (param.state[0] == 'error')}">
+            <div class="col-4"></div>
+            <div class="col-4 text-danger">
+                Nie możesz kupić tego motocykla, masz za mało pieniędzy!
+            </div>
+            <div class="col-4"></div>
+        </div>
         <div class="row">
             <div class="col-4">
                 <h3>Właściciel oferty:</h3>
