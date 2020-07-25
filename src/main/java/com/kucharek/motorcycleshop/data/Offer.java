@@ -2,7 +2,6 @@ package com.kucharek.motorcycleshop.data;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.Valid;
@@ -10,7 +9,6 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import java.util.Calendar;
-import java.util.Date;
 
 @Data
 @AllArgsConstructor
@@ -62,5 +60,10 @@ public class Offer {
     @Column
     private boolean expired;
 
+    public String generateTitle() {
+        return "Szczegóły oferty " + getId()
+                + " Motocykl " + getMotorcycle().getBrand()
+                + " " + getMotorcycle().getModel();
+    }
 
 }

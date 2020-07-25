@@ -3,6 +3,7 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
+    <title>Dodaj ofertę</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -13,7 +14,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
-    <title>Sklep motocyklowy - strona główna</title>
 </head>
 <body>
 
@@ -62,11 +62,18 @@
     </nav>
 
     <div class="container text-center mt-3">
-        <div th:each="offer : ${offers}" class="row mb-3 border-bottom">
+        <div class="row" th:if="${(param.state != null) and (param.state[0] == 'error')}">
+            <div class="col-4"></div>
+            <div class="col-4 text-danger">
+                Nie możesz kupić tego motocykla, masz za mało pieniędzy!
+            </div>
+            <div class="col-4"></div>
+        </div>
+        <div class="row">
             <div class="col-4">
                 <h3>Właściciel oferty:</h3>
                 <span class="d-block" th:text="|${offer.owner.firstName} ${offer.owner.lastName}|"></span>
-                <a th:href="@{/offer/{id}(id=${offer.id})}" class="btn btn-outline-success m-2" >Przejdź do oferty</a>
+                <a th:href="@{/offer/showDetailsToBuy/{id}(id=${offer.id})}" class="btn btn-outline-success m-2" >Kup motocykl</a>
             </div>
             <div class="col-8">
                 <h3>Motocykl</h3>
@@ -78,10 +85,6 @@
                 <p th:text="|Pojemność silnika: ${offer.motorcycle.engineCapacity}|"></p>
             </div>
         </div>
-        <a th:href="@{/offers/showFormForAdd}"
-            class="btn btn-outline-info m-3">
-            Dodaj ofertę
-        </a>
     </div>
 
     <footer class="footer">
@@ -89,5 +92,6 @@
             2020 &copy; Sklep motocyklowy
         </div>
     </footer>
+
 </body>
 </html>

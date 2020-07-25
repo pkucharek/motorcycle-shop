@@ -1,9 +1,7 @@
 package com.kucharek.motorcycleshop.controller;
 
-import com.kucharek.motorcycleshop.data.Motorcycle;
 import com.kucharek.motorcycleshop.data.Offer;
 import com.kucharek.motorcycleshop.data.User;
-import com.kucharek.motorcycleshop.service.MotorcycleService;
 import com.kucharek.motorcycleshop.service.OfferService;
 import com.kucharek.motorcycleshop.service.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -13,8 +11,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -53,5 +52,33 @@ public class OfferController {
 
         offerService.save(offer);
         return "redirect:/";
+    }
+
+    @GetMapping("/offer/{id}")
+    public String getOfferById(Model model, @PathVariable int id) {
+        Offer offer = offerService.findById(id);
+        model.addAttribute("offer", offer);
+        return "offer/current-offer";
+    }
+
+    @GetMapping("/offer/showDetailsToBuy/{id}")
+    public String getDetailsToBuy(Model model,
+                                  @PathVariable int id,
+                                  Authentication auth,
+                                  RedirectAttributes redirectAttributes) {
+        Offer offer = offerService.findById(id);
+        model.addAttribute("offer", offer);
+        User user = userService.findByUserName(auth.getName());
+        model.addAttribute("user", user);
+        String offerTitle = offer.generateTitle();
+        model.addAttribute("offerTitle", offerTitle);
+        if (user.canBuyMotorcycle(offer)) {
+            long balanceAfterPurchase =
+                    user.getBalanceAfterPossiblePurchase(offer);
+            model.addAttribute("balanceAfterPurchase", balanceAfterPurchase);
+            return "/offer/details-to-buy";
+        }
+        redirectAttributes.addAttribute("state", "error");
+        return "redirect:/offer/" + id;
     }
 }
