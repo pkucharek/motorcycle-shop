@@ -13,6 +13,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -68,6 +69,13 @@ public class OfferController {
         model.addAttribute("user", user);
         String offerTitle = offer.generateTitle();
         model.addAttribute("offerTitle", offerTitle);
-        return "/offer/details-to-buy";
+        if (user.canBuyMotorcycle(offer)) {
+            long balanceAfterPurchase =
+                    user.getBalanceAfterPossiblePurchase(offer);
+            model.addAttribute("balanceAfterPurchase", balanceAfterPurchase);
+            return "/offer/details-to-buy";
+        }
+        redirectAttributes.addAttribute("state", "error");
+        return "redirect:/offer/" + id;
     }
 }
