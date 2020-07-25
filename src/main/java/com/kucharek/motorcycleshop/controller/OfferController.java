@@ -62,7 +62,10 @@ public class OfferController {
     }
 
     @GetMapping("/offer/showDetailsToBuy/{id}")
-    public String getDetailsToBuy(Model model, @PathVariable int id, Authentication auth) {
+    public String getDetailsToBuy(Model model,
+                                  @PathVariable int id,
+                                  Authentication auth,
+                                  RedirectAttributes redirectAttributes) {
         Offer offer = offerService.findById(id);
         model.addAttribute("offer", offer);
         User user = userService.findByUserName(auth.getName());
