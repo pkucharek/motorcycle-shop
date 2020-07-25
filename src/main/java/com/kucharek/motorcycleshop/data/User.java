@@ -44,4 +44,7 @@ public class User {
         joinColumns = @JoinColumn(name = "user_id"),
         inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Collection<Role> roles;
+    public long getBalanceAfterPossiblePurchase(Offer offer) {
+        return getBalance() - offer.getPrice();
+    }
 }
