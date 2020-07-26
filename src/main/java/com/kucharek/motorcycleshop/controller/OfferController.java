@@ -78,7 +78,12 @@ public class OfferController {
             model.addAttribute("balanceAfterPurchase", balanceAfterPurchase);
             return "/offer/details-to-buy";
         }
-        redirectAttributes.addAttribute("state", "error");
+        if (user.equals(offer.getOwner())) {
+            redirectAttributes.addAttribute("state", "same_user");
+        }
+        if (user.getBalanceAfterPossiblePurchase(offer) < 0) {
+            redirectAttributes.addAttribute("state", "low_money");
+        }
         return "redirect:/offer/" + id;
     }
 }
