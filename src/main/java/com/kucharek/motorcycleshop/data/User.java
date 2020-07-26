@@ -46,7 +46,8 @@ public class User {
     private Collection<Role> roles;
 
     public boolean canBuyMotorcycle(Offer offer) {
-        return getBalanceAfterPossiblePurchase(offer) >= 0;
+        return getBalanceAfterPossiblePurchase(offer) >= 0
+                && !offer.getOwner().equals(this);
     }
 
     public long getBalanceAfterPossiblePurchase(Offer offer) {
