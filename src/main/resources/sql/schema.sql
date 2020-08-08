@@ -9,9 +9,6 @@ create table motorcycle (
   ,color varchar(25) not null
   ,type varchar(25) not null
   ,production_year year not null
-    check (production_year between
-      year("1885-01-01") and year(current_date())
-    )
   ,cylinders int(2) check (cylinders between 1 and 12)
   ,engine_capacity int(5) check (engine_capacity between 1 and 3000)
 );
