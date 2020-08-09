@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void save(FormUser formUser) {
+    public void saveFormUser(FormUser formUser) {
         User user = User.builder()
             .username(formUser.getUserName())
             .password(passwordEncoder.encode(formUser.getPassword()))
@@ -75,6 +75,11 @@ public class UserServiceImpl implements UserService {
     public void chargeUser(String userName) {
         User user = userRepository.findByUsername(userName);
         user.setBalance(user.getBalance() + 500);
+        userRepository.save(user);
+    }
+
+    @Override
+    public void saveUser(User user) {
         userRepository.save(user);
     }
 }
