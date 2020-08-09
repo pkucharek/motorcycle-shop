@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void save(FormUser formUser) {
+    public void saveFormUser(FormUser formUser) {
         User user = User.builder()
             .username(formUser.getUserName())
             .password(passwordEncoder.encode(formUser.getPassword()))
