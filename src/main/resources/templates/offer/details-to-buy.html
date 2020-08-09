@@ -66,6 +66,7 @@
     <p th:text="|Twój stan konta: ${user.balance}|"></p>
     <p th:text="|Cena motocykla: ${offer.price}|"></p>
     <p th:text="|Stan Twojego konta po zakupie: ${balanceAfterPurchase}|"></p>
+    <a th:href="@{/buyOffer/{id}(id=${offer.id})}" class="btn btn-outline-primary m-2" >Potwierdź zakup</a>
 </div>
 
 <footer class="footer">
