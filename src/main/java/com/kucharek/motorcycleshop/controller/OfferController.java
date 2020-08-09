@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
+import java.util.Calendar;
 import java.util.List;
 
 @Slf4j
@@ -85,5 +86,31 @@ public class OfferController {
             redirectAttributes.addAttribute("state", "low_money");
         }
         return "redirect:/offer/" + id;
+    }
+
+    @GetMapping("/buyOffer/{id}")
+    public String performPurchase(
+            Model model, @PathVariable int id,
+            Authentication auth) {
+        Offer offer = offerService.findById(id);
+
+        User buyer = userService.findByUserName(auth.getName());
+        long buyerBalanceAfterPurchase = buyer.getBalanceAfterPossiblePurchase(offer);
+        buyer.setBalance(buyerBalanceAfterPurchase);
+
+        User owner = offer.getOwner();
+        long ownerBalanceAfterPurchase = owner.getBalance() + offer.getPrice();
+        owner.setBalance(ownerBalanceAfterPurchase);
+
+        offer.setBuyer(buyer);
+        Calendar purchaseDate = Calendar.getInstance();
+        offer.setPurchaseDate(purchaseDate);
+        offer.setExpired(true);
+
+        offerService.save(offer);
+        userService.saveUser(owner);
+        userService.saveUser(buyer);
+
+        return "offer/successful-purchase";
     }
 }

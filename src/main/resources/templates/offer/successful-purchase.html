@@ -3,7 +3,7 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
-    <title th:text="${offerTitle}">Template title</title>
+    <title>Zakup motocykla udany</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
@@ -62,11 +62,7 @@
 </nav>
 
 <div class="container text-center mt-3">
-    <p th:text="|Kupujesz motocykl ${offer.motorcycle.brand} ${offer.motorcycle.model}|"></p>
-    <p th:text="|Twój stan konta: ${user.balance}|"></p>
-    <p th:text="|Cena motocykla: ${offer.price}|"></p>
-    <p th:text="|Stan Twojego konta po zakupie: ${balanceAfterPurchase}|"></p>
-    <a th:href="@{/buyOffer/{id}(id=${offer.id})}" class="btn btn-outline-primary m-2" >Potwierdź zakup</a>
+    <h2 class="text-success" >Udało się kupić motocykl!</h2>
 </div>
 
 <footer class="footer">
