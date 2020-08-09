@@ -17,8 +17,8 @@ public class OfferServiceImpl implements OfferService {
     private MotorcycleService motorcycleService;
 
     @Override
-    public List<Offer> findAll() {
-        return offerRepository.findAll();
+    public List<Offer> findAllNotExpired() {
+        return offerRepository.findOffersByExpiredIsFalse();
     }
 
     @Override
