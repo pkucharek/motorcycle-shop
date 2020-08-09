@@ -42,7 +42,7 @@ public class RegisterController {
             return "registration-form";
         }
 
-        userService.save(formUser);
+        userService.saveFormUser(formUser);
         return "registration-confirmation";
     }
 
