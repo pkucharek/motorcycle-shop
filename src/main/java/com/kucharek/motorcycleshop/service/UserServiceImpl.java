@@ -77,4 +77,9 @@ public class UserServiceImpl implements UserService {
         user.setBalance(user.getBalance() + 500);
         userRepository.save(user);
     }
+
+    @Override
+    public void saveUser(User user) {
+        userRepository.save(user);
+    }
 }
