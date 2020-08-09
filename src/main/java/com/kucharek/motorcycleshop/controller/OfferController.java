@@ -31,7 +31,7 @@ public class OfferController {
 
     @GetMapping("/")
     public String listOffers(Model model) {
-        List<Offer> offers = offerService.findAll();
+        List<Offer> offers = offerService.findAllNotExpired();
         model.addAttribute("offers", offers);
         return "offer/list-offers";
     }
