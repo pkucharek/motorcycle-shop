@@ -2,6 +2,7 @@ package com.kucharek.motorcycleshop.data;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.Calendar;
 import java.util.List;
 
 public interface OfferRepository
@@ -9,4 +10,6 @@ public interface OfferRepository
 
     List<Offer> findOffersByExpiredIsFalse();
     List<Offer> findByBuyer(User buyer);
+
+    List<Offer> findByExpireDateBeforeAndExpiredIsFalse(Calendar actualDate);
 }
