@@ -92,7 +92,26 @@
                 </td>
             </tr>
         </table>
+
+        <h3>Historia zamówień</h3>
+        <table class="table">
+            <tr>
+                <th>Data zakupu</th>
+                <th>Nazwa motocykla</th>
+                <th>Rok produkcji</th>
+                <th>Pojemność silnika</th>
+                <th>Cena</th>
+            </tr>
+            <tr th:each="offer : ${offers}">
+                <td th:text="${offer.purchaseDateString}"></td>
+                <td th:text="${offer.motorcycle.model}"></td>
+                <td th:text="${offer.motorcycle.productionYear}"></td>
+                <td th:text="${offer.motorcycle.engineCapacity}"></td>
+                <td th:text="${offer.price}"></td>
+            </tr>
+        </table>
     </div>
+
     <footer class="footer">
         <div class="container text-center">
             2020 &copy; Sklep motocyklowy
