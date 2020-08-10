@@ -2,6 +2,7 @@ package com.kucharek.motorcycleshop.service;
 
 import com.kucharek.motorcycleshop.data.Offer;
 import com.kucharek.motorcycleshop.data.OfferRepository;
+import com.kucharek.motorcycleshop.data.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,6 +20,11 @@ public class OfferServiceImpl implements OfferService {
     @Override
     public List<Offer> findAllNotExpired() {
         return offerRepository.findOffersByExpiredIsFalse();
+    }
+
+    @Override
+    public List<Offer> findUserOffers(User buyer) {
+        return offerRepository.findByBuyer(buyer);
     }
 
     @Override
