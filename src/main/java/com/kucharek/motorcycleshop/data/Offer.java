@@ -66,4 +66,13 @@ public class Offer {
                 + " " + getMotorcycle().getModel();
     }
 
+    public String getPurchaseDateString() {
+        int year = purchaseDate.get(Calendar.YEAR);
+        int month = purchaseDate.get(Calendar.MONTH) + 1;
+        int day = purchaseDate.get(Calendar.DAY_OF_MONTH);
+        return String.format("%04d", year)
+                + "-" + String.format("%02d", month)
+                + "-" + String.format("%02d", day);
+    }
+
 }
