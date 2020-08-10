@@ -8,4 +8,5 @@ public interface OfferRepository
     extends JpaRepository<Offer, Long> {
 
     List<Offer> findOffersByExpiredIsFalse();
+    List<Offer> findByBuyer(User buyer);
 }
