@@ -13,4 +13,6 @@ public interface OfferService {
     void save(Offer offer);
 
     Offer findById(int id);
+
+    void scheduledExpireOffers();
 }
