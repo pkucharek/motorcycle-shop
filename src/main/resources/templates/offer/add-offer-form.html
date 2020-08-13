@@ -65,7 +65,8 @@
     <div class="container text-center mt-3">
         <p class="h3 my-3">Dodaj ofertę</p>
         <form action="#" th:action="@{/offers/save}"
-                         th:object="${offer}" method="POST">
+                         th:object="${offer}" method="POST"
+                         enctype="multipart/form-data">
             <div class="row">
                 <div class="col-3"></div>
                 <input type="text" th:field="*{motorcycle.brand}"
@@ -130,6 +131,21 @@
                      th:if="${#fields.hasErrors('price')}"
                      th:errors="*{price}" ></div>
             </div>
+            <div class="row">
+                <div class="col-3"></div>
+                <table class="my-3 col-6 align-center">
+                    <tr>
+                        <td>Wstaw zdjęcie motocykla:</td>
+                        <td>
+                            <input type="file" name="file" />
+                        </td>
+                    </tr>
+                </table>
+                <div class="col-3 text-danger my-3"
+                     th:if="${imageError != null}"
+                     th:text="${imageError}" ></div>
+            </div>
+
             <button type="submit" class="btn btn-outline-info mb-2">Dodaj ofertę</button>
         </form>
 	</div>
