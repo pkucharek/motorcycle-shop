@@ -69,8 +69,7 @@
                 <a th:href="@{/offer/{id}(id=${offer.id})}" class="btn btn-outline-success m-2" >Przejdź do oferty</a>
             </div>
             <div class="col-4">
-                <h3>Motocykl</h3>
-                <p th:text="|${offer.motorcycle.brand} ${offer.motorcycle.model}|"></p>
+                <h3 th:text="|${offer.motorcycle.brand} ${offer.motorcycle.model}|"></h3>
                 <p th:text="|Kolor: ${offer.motorcycle.color}|"></p>
                 <p th:text="|Typ: ${offer.motorcycle.type}|"></p>
                 <p th:text="|Rok produkcji: ${offer.motorcycle.productionYear}|"></p>
