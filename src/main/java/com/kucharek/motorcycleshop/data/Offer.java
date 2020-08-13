@@ -1,7 +1,9 @@
 package com.kucharek.motorcycleshop.data;
 
+import com.kucharek.motorcycleshop.controller.OfferController;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 
 import javax.persistence.*;
 import javax.validation.Valid;
@@ -79,6 +81,17 @@ public class Offer {
         return String.format("%04d", year)
                 + "-" + String.format("%02d", month)
                 + "-" + String.format("%02d", day);
+    }
+
+    public String resolveImageUrlPath() {
+        String offerId = getId().toString();
+        String imageName = getImageName();
+        return MvcUriComponentsBuilder.fromMethodName(
+                OfferController.class,
+                "serveFile",
+                offerId,
+                imageName
+        ).build().toUri().toString();
     }
 
 }
