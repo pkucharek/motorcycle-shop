@@ -1,8 +1,10 @@
 package com.kucharek.motorcycleshop.data;
 
 import com.kucharek.motorcycleshop.controller.OfferController;
+import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 
 import javax.persistence.*;
@@ -66,6 +68,7 @@ public class Offer {
     private String imageName;
 
     @Transient
+    @Getter(AccessLevel.NONE)
     private String imageURLPath;
 
     public String generateTitle() {
@@ -81,6 +84,14 @@ public class Offer {
         return String.format("%04d", year)
                 + "-" + String.format("%02d", month)
                 + "-" + String.format("%02d", day);
+    }
+
+    public String getImageURLPath() {
+        if (imageURLPath == null || imageURLPath.isEmpty()) {
+            imageURLPath = resolveImageUrlPath();
+            return imageURLPath;
+        }
+        return imageURLPath;
     }
 
     public String resolveImageUrlPath() {
