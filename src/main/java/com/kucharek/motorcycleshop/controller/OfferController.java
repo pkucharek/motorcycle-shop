@@ -29,6 +29,9 @@ public class OfferController {
     @Autowired
     private OfferService offerService;
 
+    @Autowired
+    private StorageService storageService;
+
     @GetMapping("/")
     public String listOffers(Model model) {
         List<Offer> offers = offerService.findAllNotExpired();
@@ -43,13 +46,26 @@ public class OfferController {
     }
 
     @PostMapping("/offers/save")
-    public String saveOffer(@Valid Offer offer, Errors errors, Authentication auth) {
+    public String saveOffer(@Valid Offer offer, Errors errors, Authentication auth,
+                            @RequestParam("file") MultipartFile file, Model model) {
         if (errors.hasErrors())
             return "offer/add-offer-form";
 
         User user = userService.findByUserName(auth.getName());
         offer.setOwner(user);
         offer.setExpired(false);
+        String fileName = StringUtils.cleanPath(
+                Objects.requireNonNull(file.getOriginalFilename())
+        );
+
+        offer.setImageName(fileName);
+        Long nextId = offerService.getNextId();
+        try {
+            storageService.store(file, nextId.toString());
+        } catch (StorageException e) {
+            model.addAttribute("imageError", "Zdjęcie jest wymagane!");
+            return "offer/add-offer-form";
+        }
 
         offerService.save(offer);
         return "redirect:/";
