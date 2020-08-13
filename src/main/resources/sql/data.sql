@@ -28,9 +28,9 @@ values
 insert into user (username, password, first_name, last_name, email, phone_number, balance)
 values
 ('jan', '$2y$12$TsEAMCX.eWcfRR6R1NHMDenK.q4dyM3aAOdyIILE4dbWLuxpMkY7m', 'Jan', 'Adamski', 'jan@company.com', '123456789', 500),
-('maria', '$2y$12$iFoZb5xxjNIVBNfyq4RkCeJ4bWoPd6RpscrwOOFtJ.o6V82TqyrOS', 'Maria', 'Curie', 'maria@company.com', '987654321', 500),
-('sandra', '$2y$12$XAmI9mYySg8Z7xsIGCuXouyTQpC00iDfAdCYCAf.Bal0C1YSsQAU6', 'Sandra', 'Malczyk', 'sandra@company.com', '123987456', 500),
-('piotr', '$2y$12$FhERKd4oTbb3YR8lIi3TU.ACU35dDEmz.zoOKAzmngdz9ZnTnQNje', 'Piotr', 'Kucharek', 'piotr@company.com', '789321456', 500);
+('maria', '$2y$12$iFoZb5xxjNIVBNfyq4RkCeJ4bWoPd6RpscrwOOFtJ.o6V82TqyrOS', 'Maria', 'Curie', 'maria@company.com', '987654321', 10000),
+('sandra', '$2y$12$XAmI9mYySg8Z7xsIGCuXouyTQpC00iDfAdCYCAf.Bal0C1YSsQAU6', 'Sandra', 'Malczyk', 'sandra@company.com', '123987456', 65000),
+('piotr', '$2y$12$FhERKd4oTbb3YR8lIi3TU.ACU35dDEmz.zoOKAzmngdz9ZnTnQNje', 'Piotr', 'Kucharek', 'piotr@company.com', '789321456', 50000);
 
 
 insert into role (name)
@@ -51,16 +51,16 @@ VALUES
 
 
 insert into offer (owner_id,  buyer_id, motorcycle_id, submission_date, purchase_date, price, expire_date, expired, image_name)
-values (1, null, 1, date("2020-05-26"), null, 500, date("2020-06-26"), false, "yamaha-fazer.jpg");
+values (1, null, 1, date("2020-05-26"), null, 6000, date("2020-06-26"), false, "yamaha-fazer.jpg");
 
 insert into offer (owner_id,  buyer_id, motorcycle_id, submission_date, purchase_date, price, expire_date, expired, image_name)
-values (1, null, 2, date("2020-05-20"), null, 1500, date("2020-06-20"), false, "honda-cbr.jpg");
+values (1, null, 2, date("2020-05-20"), null, 15000, date("2020-06-20"), false, "honda-cbr.jpg");
 
 insert into offer (owner_id,  buyer_id, motorcycle_id, submission_date, purchase_date, price, expire_date, expired, image_name)
-values (2, null, 3, date("2020-05-30"), null, 2000, date("2020-06-30"), false, "harley-davidson.jpg");
+values (2, null, 3, date("2020-05-30"), null, 20000, date("2020-06-30"), false, "harley-davidson.jpg");
 
 insert into offer (owner_id,  buyer_id, motorcycle_id, submission_date, purchase_date, price, expire_date, expired, image_name)
-values (3, null, 4, date("2020-05-15"), null, 500, date("2020-06-15"), false, "suzuki-gladius.jpg");
+values (3, null, 4, date("2020-05-15"), null, 1500, date("2020-06-15"), false, "suzuki-gladius.jpg");
 
 insert into offer (owner_id,  buyer_id, motorcycle_id, submission_date, purchase_date, price, expire_date, expired, image_name)
-values (3, null, 5, date("2020-05-18"), null, 3000, date("2020-06-18"), false, "romet-zxt-125.jpg");
+values (3, null, 5, date("2020-05-18"), null, 4000, date("2020-06-18"), false, "romet-zxt-125.jpg");
