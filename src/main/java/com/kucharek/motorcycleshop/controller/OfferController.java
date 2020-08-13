@@ -4,20 +4,26 @@ import com.kucharek.motorcycleshop.data.Offer;
 import com.kucharek.motorcycleshop.data.User;
 import com.kucharek.motorcycleshop.service.OfferService;
 import com.kucharek.motorcycleshop.service.UserService;
+import com.kucharek.motorcycleshop.storage.StorageException;
+import com.kucharek.motorcycleshop.storage.StorageService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Objects;
 
 @Slf4j
 @Controller
