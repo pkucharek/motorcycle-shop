@@ -36,6 +36,11 @@ public class OfferServiceImpl implements OfferService {
     }
 
     @Override
+    public Long getNextId() {
+        return offerRepository.getNextOfferId();
+    }
+
+    @Override
     public Offer findById(int id) {
         return offerRepository.findById((long) id).get();
     }

@@ -50,17 +50,17 @@ VALUES
 (4, 1);
 
 
-insert into offer (owner_id,  buyer_id, motorcycle_id, submission_date, purchase_date, price, expire_date, expired)
-values (1, null, 1, date("2020-05-26"), null, 500, date("2020-06-26"), false);
+insert into offer (owner_id,  buyer_id, motorcycle_id, submission_date, purchase_date, price, expire_date, expired, image_name)
+values (1, null, 1, date("2020-05-26"), null, 500, date("2020-06-26"), false, "yamaha-fazer.jpg");
 
-insert into offer (owner_id,  buyer_id, motorcycle_id, submission_date, purchase_date, price, expire_date, expired)
-values (1, null, 2, date("2020-05-20"), null, 1500, date("2020-06-20"), false);
+insert into offer (owner_id,  buyer_id, motorcycle_id, submission_date, purchase_date, price, expire_date, expired, image_name)
+values (1, null, 2, date("2020-05-20"), null, 1500, date("2020-06-20"), false, "honda-cbr.jpg");
 
-insert into offer (owner_id,  buyer_id, motorcycle_id, submission_date, purchase_date, price, expire_date, expired)
-values (2, null, 3, date("2020-05-30"), null, 2000, date("2020-06-30"), false);
+insert into offer (owner_id,  buyer_id, motorcycle_id, submission_date, purchase_date, price, expire_date, expired, image_name)
+values (2, null, 3, date("2020-05-30"), null, 2000, date("2020-06-30"), false, "harley-davidson.jpg");
 
-insert into offer (owner_id,  buyer_id, motorcycle_id, submission_date, purchase_date, price, expire_date, expired)
-values (3, null, 4, date("2020-05-15"), null, 500, date("2020-06-15"), false);
+insert into offer (owner_id,  buyer_id, motorcycle_id, submission_date, purchase_date, price, expire_date, expired, image_name)
+values (3, null, 4, date("2020-05-15"), null, 500, date("2020-06-15"), false, "suzuki-gladius.jpg");
 
-insert into offer (owner_id,  buyer_id, motorcycle_id, submission_date, purchase_date, price, expire_date, expired)
-values (3, null, 5, date("2020-05-18"), null, 3000, date("2020-06-18"), false);
+insert into offer (owner_id,  buyer_id, motorcycle_id, submission_date, purchase_date, price, expire_date, expired, image_name)
+values (3, null, 5, date("2020-05-18"), null, 3000, date("2020-06-18"), false, "romet-zxt-125.jpg");

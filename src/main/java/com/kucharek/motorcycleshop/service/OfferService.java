@@ -11,6 +11,7 @@ public interface OfferService {
     List<Offer> findUserOffers(User owner);
 
     void save(Offer offer);
+    Long getNextId();
 
     Offer findById(int id);
 

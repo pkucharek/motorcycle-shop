@@ -4,20 +4,26 @@ import com.kucharek.motorcycleshop.data.Offer;
 import com.kucharek.motorcycleshop.data.User;
 import com.kucharek.motorcycleshop.service.OfferService;
 import com.kucharek.motorcycleshop.service.UserService;
+import com.kucharek.motorcycleshop.storage.StorageException;
+import com.kucharek.motorcycleshop.storage.StorageService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.Resource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Objects;
 
 @Slf4j
 @Controller
@@ -29,11 +35,27 @@ public class OfferController {
     @Autowired
     private OfferService offerService;
 
+    @Autowired
+    private StorageService storageService;
+
     @GetMapping("/")
     public String listOffers(Model model) {
         List<Offer> offers = offerService.findAllNotExpired();
+        for (Offer offer : offers) {
+            String imageURLPath = offer.resolveImageUrlPath();
+            offer.setImageURLPath(imageURLPath);
+        }
         model.addAttribute("offers", offers);
         return "offer/list-offers";
+    }
+
+    @GetMapping("/files")
+    @ResponseBody
+    public ResponseEntity<Resource> serveFile(String offerId, String filename) {
+
+        Resource file = storageService.loadAsResource(offerId, filename);
+        return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION,
+                "attachment;").body(file);
     }
 
     @GetMapping("/offers/showFormForAdd")
@@ -43,13 +65,26 @@ public class OfferController {
     }
 
     @PostMapping("/offers/save")
-    public String saveOffer(@Valid Offer offer, Errors errors, Authentication auth) {
+    public String saveOffer(@Valid Offer offer, Errors errors, Authentication auth,
+                            @RequestParam("file") MultipartFile file, Model model) {
         if (errors.hasErrors())
             return "offer/add-offer-form";
 
         User user = userService.findByUserName(auth.getName());
         offer.setOwner(user);
         offer.setExpired(false);
+        String fileName = StringUtils.cleanPath(
+                Objects.requireNonNull(file.getOriginalFilename())
+        );
+
+        offer.setImageName(fileName);
+        Long nextId = offerService.getNextId();
+        try {
+            storageService.store(file, nextId.toString());
+        } catch (StorageException e) {
+            model.addAttribute("imageError", "Zdjęcie jest wymagane!");
+            return "offer/add-offer-form";
+        }
 
         offerService.save(offer);
         return "redirect:/";
@@ -59,6 +94,8 @@ public class OfferController {
     public String getOfferById(Model model, @PathVariable int id) {
         Offer offer = offerService.findById(id);
         model.addAttribute("offer", offer);
+        String imageURLPath = offer.resolveImageUrlPath();
+        offer.setImageURLPath(imageURLPath);
         return "offer/current-offer";
     }
 
@@ -69,6 +106,8 @@ public class OfferController {
                                   RedirectAttributes redirectAttributes) {
         Offer offer = offerService.findById(id);
         model.addAttribute("offer", offer);
+        String imageURLPath = offer.resolveImageUrlPath();
+        offer.setImageURLPath(imageURLPath);
         User user = userService.findByUserName(auth.getName());
         model.addAttribute("user", user);
         String offerTitle = offer.generateTitle();
