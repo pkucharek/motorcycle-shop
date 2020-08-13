@@ -60,6 +60,12 @@ public class Offer {
     @Column
     private boolean expired;
 
+    @Column
+    private String imageName;
+
+    @Transient
+    private String imageURLPath;
+
     public String generateTitle() {
         return "Szczegóły oferty " + getId()
                 + " Motocykl " + getMotorcycle().getBrand()
