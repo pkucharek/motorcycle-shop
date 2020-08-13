@@ -64,6 +64,7 @@ create table offer (
 	,price int(10) not null
     ,expire_date date
     ,expired bool not null
+    ,image_name varchar(50) not null
 );
 
 alter table offer
