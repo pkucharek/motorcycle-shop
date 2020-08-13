@@ -95,6 +95,7 @@
         </table>
 
         <div th:if="${!offers.empty}">
+            <h3>Historia zamówień</h3>
             <div th:each="offer : ${offers}" class="row my-3 border-bottom">
                 <div class="col-6">
                     <h3 th:text="|${offer.motorcycle.brand} ${offer.motorcycle.model}|"></h3>
