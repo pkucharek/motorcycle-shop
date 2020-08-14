@@ -13,6 +13,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/chargeUser.js}"></script>
     <title>Panel użytkownika</title>
 </head>
 <body>
@@ -82,14 +83,13 @@
             </tr>
             <tr>
                 <td>Stan konta</td>
-                <td th:text="|${user.balance} zł|"></td>
+                <td id="user-balance" th:text="|${user.balance} zł|"></td>
             </tr>
             <tr>
                 <td colspan="2">
-                    <a th:href="@{/user/charge}"
-                       class="btn btn-dark my-2 my-sm-0 mx-2">
+                    <button id="charge" type="button" class="btn btn-dark my-2 my-sm-0 mx-2" onclick="chargeUser()">
                         Doładuj konto
-                    </a>
+                    </button>
                 </td>
             </tr>
         </table>
