@@ -68,10 +68,10 @@ public class OfferController {
         User user = userService.findByUserName(auth.getName());
         offer.setOwner(user);
         offer.setExpired(false);
+
         String fileName = StringUtils.cleanPath(
                 Objects.requireNonNull(file.getOriginalFilename())
         );
-
         offer.setImageName(fileName);
         Long nextId = offerService.getNextId();
         try {
