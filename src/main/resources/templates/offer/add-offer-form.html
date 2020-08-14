@@ -131,17 +131,11 @@
                      th:if="${#fields.hasErrors('price')}"
                      th:errors="*{price}" ></div>
             </div>
-            <div class="row">
-                <div class="col-3"></div>
-                <table class="my-3 col-6 align-center">
-                    <tr>
-                        <td>Wstaw zdjęcie motocykla:</td>
-                        <td>
-                            <input type="file" name="file" />
-                        </td>
-                    </tr>
-                </table>
-                <div class="col-3 text-danger my-3"
+            <div class="row my-3">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-3">Wstaw zdjęcie motocykla:</div>
+                <div class="col-sm-3"><input type="file" name="file" /></div>
+                <div class="col-sm-3 text-danger my-3"
                      th:if="${imageError != null}"
                      th:text="${imageError}" ></div>
             </div>
