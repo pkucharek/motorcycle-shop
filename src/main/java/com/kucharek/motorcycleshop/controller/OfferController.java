@@ -41,10 +41,6 @@ public class OfferController {
     @GetMapping("/")
     public String listOffers(Model model) {
         List<Offer> offers = offerService.findAllNotExpired();
-        for (Offer offer : offers) {
-            String imageURLPath = offer.resolveImageUrlPath();
-            offer.setImageURLPath(imageURLPath);
-        }
         model.addAttribute("offers", offers);
         return "offer/list-offers";
     }
