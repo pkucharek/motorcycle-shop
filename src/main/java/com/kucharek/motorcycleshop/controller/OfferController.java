@@ -52,7 +52,6 @@ public class OfferController {
     @GetMapping("/files")
     @ResponseBody
     public ResponseEntity<Resource> serveFile(String offerId, String filename) {
-
         Resource file = storageService.loadAsResource(offerId, filename);
         return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION,
                 "attachment;").body(file);
