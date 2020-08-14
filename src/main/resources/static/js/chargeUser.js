@@ -9,3 +9,7 @@ const chargeUser = () => {
     xhttp.send();
 }
 
+window.onload = () => {
+    let chargeButton = document.getElementById("charge");
+    chargeButton.addEventListener("click", chargeUser);
+}
