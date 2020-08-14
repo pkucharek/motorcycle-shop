@@ -51,16 +51,16 @@ VALUES
 
 
 insert into offer (owner_id,  buyer_id, motorcycle_id, submission_date, purchase_date, price, expire_date, expired, image_name)
-values (1, null, 1, date("2020-05-26"), null, 6000, date("2020-06-26"), false, "yamaha-fazer.jpg");
+values (1, null, 1, curdate(), null, 6000, curdate() + interval 30 day, false, "yamaha-fazer.jpg");
 
 insert into offer (owner_id,  buyer_id, motorcycle_id, submission_date, purchase_date, price, expire_date, expired, image_name)
-values (1, null, 2, date("2020-05-20"), null, 15000, date("2020-06-20"), false, "honda-cbr.jpg");
+values (1, null, 2, curdate() - interval 2 day, null, 15000, curdate() + interval 28 day, false, "honda-cbr.jpg");
 
 insert into offer (owner_id,  buyer_id, motorcycle_id, submission_date, purchase_date, price, expire_date, expired, image_name)
-values (2, null, 3, date("2020-05-30"), null, 20000, date("2020-06-30"), false, "harley-davidson.jpg");
+values (2, null, 3, curdate() - interval 5 day, null, 20000, curdate() + interval 25 day, false, "harley-davidson.jpg");
 
 insert into offer (owner_id,  buyer_id, motorcycle_id, submission_date, purchase_date, price, expire_date, expired, image_name)
-values (3, null, 4, date("2020-05-15"), null, 1500, date("2020-06-15"), false, "suzuki-gladius.jpg");
+values (3, null, 4, curdate() - interval 10 day, null, 1500, curdate() + interval 20 day, false, "suzuki-gladius.jpg");
 
 insert into offer (owner_id,  buyer_id, motorcycle_id, submission_date, purchase_date, price, expire_date, expired, image_name)
-values (3, null, 5, date("2020-05-18"), null, 4000, date("2020-06-18"), false, "romet-zxt-125.jpg");
+values (3, null, 5, curdate() - interval 8 day, null, 4000, curdate() + interval 22 day, false, "romet-zxt-125.jpg");
