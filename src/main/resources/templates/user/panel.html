@@ -97,7 +97,7 @@
         <div th:if="${!offers.empty}">
             <h3>Historia zamówień</h3>
             <div th:each="offer : ${offers}" class="row my-3 border-bottom">
-                <div class="col-6">
+                <div class="col-sm">
                     <h3 th:text="|${offer.motorcycle.brand} ${offer.motorcycle.model}|"></h3>
                     <h4 th:text="|Data zakupu: ${offer.purchaseDateString}|"></h4>
                     <p th:text="|Kolor: ${offer.motorcycle.color}|"></p>
@@ -107,7 +107,7 @@
                     <p th:text="|Pojemność silnika: ${offer.motorcycle.engineCapacity}|"></p>
                     <h5 th:text="|Cena: ${offer.price}|"></h5>
                 </div>
-                <div class="col-6">
+                <div class="col-sm">
                     <img th:src="${offer.imageURLPath}" width="500" height="320">
                 </div>
             </div>
