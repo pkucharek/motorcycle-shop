@@ -30,14 +30,6 @@ public class UserController {
         return "user/panel";
     }
 
-    @GetMapping("/charge")
-    public String chargeUser(Principal principal, Model model) {
-        User user = saveUserToModelAndReturn(principal, model);
-        userService.chargeUser(principal.getName());
-        saveOffersBoughtByUserToModel(model, user);
-        return "user/panel";
-    }
-
     private User saveUserToModelAndReturn(Principal principal, Model model) {
         String username = principal.getName();
         User user = userService.findByUserName(username);
