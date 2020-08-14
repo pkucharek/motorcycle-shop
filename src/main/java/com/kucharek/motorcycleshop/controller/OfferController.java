@@ -89,8 +89,6 @@ public class OfferController {
     public String getOfferById(Model model, @PathVariable int id) {
         Offer offer = offerService.findById(id);
         model.addAttribute("offer", offer);
-        String imageURLPath = offer.resolveImageUrlPath();
-        offer.setImageURLPath(imageURLPath);
         return "offer/current-offer";
     }
 
@@ -101,8 +99,6 @@ public class OfferController {
                                   RedirectAttributes redirectAttributes) {
         Offer offer = offerService.findById(id);
         model.addAttribute("offer", offer);
-        String imageURLPath = offer.resolveImageUrlPath();
-        offer.setImageURLPath(imageURLPath);
         User user = userService.findByUserName(auth.getName());
         model.addAttribute("user", user);
         String offerTitle = offer.generateTitle();
