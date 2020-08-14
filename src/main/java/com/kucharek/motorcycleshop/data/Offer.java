@@ -94,7 +94,7 @@ public class Offer {
         return imageURLPath;
     }
 
-    public String resolveImageUrlPath() {
+    private String resolveImageUrlPath() {
         String offerId = getId().toString();
         String imageName = getImageName();
         return MvcUriComponentsBuilder.fromMethodName(
