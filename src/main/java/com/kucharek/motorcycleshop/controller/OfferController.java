@@ -41,10 +41,6 @@ public class OfferController {
     @GetMapping("/")
     public String listOffers(Model model) {
         List<Offer> offers = offerService.findAllNotExpired();
-        for (Offer offer : offers) {
-            String imageURLPath = offer.resolveImageUrlPath();
-            offer.setImageURLPath(imageURLPath);
-        }
         model.addAttribute("offers", offers);
         return "offer/list-offers";
     }
@@ -52,7 +48,6 @@ public class OfferController {
     @GetMapping("/files")
     @ResponseBody
     public ResponseEntity<Resource> serveFile(String offerId, String filename) {
-
         Resource file = storageService.loadAsResource(offerId, filename);
         return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION,
                 "attachment;").body(file);
@@ -73,10 +68,10 @@ public class OfferController {
         User user = userService.findByUserName(auth.getName());
         offer.setOwner(user);
         offer.setExpired(false);
+
         String fileName = StringUtils.cleanPath(
                 Objects.requireNonNull(file.getOriginalFilename())
         );
-
         offer.setImageName(fileName);
         Long nextId = offerService.getNextId();
         try {
@@ -94,8 +89,6 @@ public class OfferController {
     public String getOfferById(Model model, @PathVariable int id) {
         Offer offer = offerService.findById(id);
         model.addAttribute("offer", offer);
-        String imageURLPath = offer.resolveImageUrlPath();
-        offer.setImageURLPath(imageURLPath);
         return "offer/current-offer";
     }
 
@@ -106,8 +99,6 @@ public class OfferController {
                                   RedirectAttributes redirectAttributes) {
         Offer offer = offerService.findById(id);
         model.addAttribute("offer", offer);
-        String imageURLPath = offer.resolveImageUrlPath();
-        offer.setImageURLPath(imageURLPath);
         User user = userService.findByUserName(auth.getName());
         model.addAttribute("user", user);
         String offerTitle = offer.generateTitle();
