@@ -12,7 +12,7 @@ values
 insert into motorcycle
 	(brand, model, color, type, production_year, cylinders, engine_capacity)
 values 
-	("Harley-Davidson", "Street Rod", "czarny", "cruiser", 2020, 6, 800);
+	("Harley-Davidson", "Street Rod", "czarno-biały", "cruiser", 2020, 6, 800);
     
 insert into motorcycle
 	(brand, model, color, type, production_year, cylinders, engine_capacity)
@@ -22,7 +22,7 @@ values
 insert into motorcycle
 	(brand, model, color, type, production_year, cylinders, engine_capacity)
 values 
-	("Romet", "ZXT125", "czerwony", "naked", 2020, 4, 125); 
+	("Romet", "ZXT125", "zielony", "naked", 2020, 4, 125);
 
 
 insert into user (username, password, first_name, last_name, email, phone_number, balance)
