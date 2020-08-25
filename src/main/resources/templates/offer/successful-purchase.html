@@ -20,9 +20,11 @@
 
     <div th:replace="fragments/navbar :: navbar"></div>
 
-<div class="container text-center mt-3">
-    <h2 class="text-success" >Udało się kupić motocykl!</h2>
-</div>
+    <div class="container text-center mt-3">
+        <div th:replace="fragments/fake-shop-message :: fake-shop-message"></div>
+
+        <h2 class="text-success" >Udało się kupić motocykl!</h2>
+    </div>
 
     <div th:replace="fragments/footer :: footer"></div>
 

@@ -21,6 +21,9 @@
     <div th:replace="fragments/navbar :: navbar"></div>
 
     <div class="container text-center mt-3">
+
+        <div th:replace="fragments/fake-shop-message :: fake-shop-message"></div>
+
         <div class="row" th:if="${(param.state != null) and (param.state[0] == 'low_money')}">
             <div class="col-4"></div>
             <div class="col-4 text-danger">

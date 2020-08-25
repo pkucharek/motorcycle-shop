@@ -21,6 +21,9 @@
     <div th:replace="fragments/navbar :: navbar"></div>
 
     <div class="container text-center mt-3">
+
+        <div th:replace="fragments/fake-shop-message :: fake-shop-message"></div>
+
         <div th:each="offer : ${offers}" class="row my-3 border-bottom">
             <div class="col-sm">
                 <h3>Właściciel oferty:</h3>
