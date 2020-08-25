@@ -21,6 +21,9 @@
     <div th:replace="fragments/navbar :: navbar"></div>
 
     <div class="container text-center mt-3">
+
+        <div th:replace="fragments/fake-shop-message :: fake-shop-message"></div>
+
         <p class="h3 my-3">Logowanie</p>
         <div class="row" th:if="${param.error}">
             <div class="col-4"></div>
