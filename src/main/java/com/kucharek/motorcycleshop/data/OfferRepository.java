@@ -14,8 +14,6 @@ public interface OfferRepository
 
     List<Offer> findByExpireDateBeforeAndExpiredIsFalse(Calendar actualDate);
 
-    @Query(value = "SELECT AUTO_INCREMENT\n" +
-            "FROM information_schema.TABLES\n" +
-            "where TABLE_NAME = \"offer\";", nativeQuery = true)
+    @Query(value = "select max(id)+1 from offer;", nativeQuery = true)
     Long getNextOfferId();
 }
