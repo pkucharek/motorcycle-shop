@@ -37,7 +37,13 @@ public class OfferServiceImpl implements OfferService {
 
     @Override
     public Long getNextId() {
-        return offerRepository.getNextOfferId();
+        long nextId = 0;
+        try {
+            nextId = offerRepository.getNextOfferId();
+        } catch (NullPointerException e) {
+            nextId = 1;
+        }
+        return nextId;
     }
 
     @Override
