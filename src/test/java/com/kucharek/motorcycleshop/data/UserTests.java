@@ -40,4 +40,21 @@ public class UserTests {
         assertThat(canBuy).isFalse();
     }
 
+    @Test
+    void user_can_buy_offer_is_has_enough_money_and_is_not_the_owner() {
+        User seller = new User();
+        User buyer = User.builder()
+                .balance(1000L)
+                .build();
+
+        Offer offer = Offer.builder()
+                .owner(seller)
+                .motorcycle(new Motorcycle())
+                .price(500L)
+                .build();
+
+        boolean canBuy = buyer.canBuyMotorcycle(offer);
+
+        assertThat(canBuy).isTrue();
+    }
 }
