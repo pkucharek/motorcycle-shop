@@ -2,17 +2,24 @@ package com.kucharek.motorcycleshop.data;
 
 import com.kucharek.motorcycleshop.data.validation.ProductionYearConstraint;
 import com.kucharek.motorcycleshop.data.validation.YearAttributeConverter;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import javax.validation.constraints.*;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.time.Year;
 
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Table
+@Builder
 public class Motorcycle {
 
     @Id

@@ -1,10 +1,7 @@
 package com.kucharek.motorcycleshop.data;
 
 import com.kucharek.motorcycleshop.controller.OfferController;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.Getter;
+import lombok.*;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 
 import javax.persistence.*;
@@ -18,6 +15,7 @@ import java.util.Calendar;
 @AllArgsConstructor
 @Entity
 @Table
+@Builder
 public class Offer {
 
     public Offer() {
