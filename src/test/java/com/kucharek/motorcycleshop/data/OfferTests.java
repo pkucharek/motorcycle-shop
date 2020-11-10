@@ -8,6 +8,15 @@ public class OfferTests {
 
     @Test
     void new_offer_has_submission_date_of_today() {
-        then(new Offer()).hasSubmittedToday();
+        then(offer()).hasSubmittedToday();
+    }
+
+    @Test
+    void new_offer_has_expire_date_30_days_after_today() {
+        then(offer()).expireMonthLater();
+    }
+
+    private Offer offer() {
+        return new Offer();
     }
 }

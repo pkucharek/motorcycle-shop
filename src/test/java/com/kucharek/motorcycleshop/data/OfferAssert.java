@@ -1,6 +1,7 @@
 package com.kucharek.motorcycleshop.data;
 
 import java.util.Calendar;
+import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -18,9 +19,19 @@ class OfferAssert {
 
     OfferAssert hasSubmittedToday() {
         Calendar today = Calendar.getInstance();
-        assertThat(offer.getSubmissionDate().get(Calendar.YEAR)).isEqualTo(today.get(Calendar.YEAR));
-        assertThat(offer.getSubmissionDate().get(Calendar.MONTH)).isEqualTo(today.get(Calendar.MONTH));
-        assertThat(offer.getSubmissionDate().get(Calendar.DAY_OF_MONTH)).isEqualTo(today.get(Calendar.DAY_OF_MONTH));
+        areDatesEqual(offer.getSubmissionDate(), today);
         return this;
+    }
+
+    OfferAssert expireMonthLater() {
+        Calendar monthLater = Calendar.getInstance();
+        monthLater.add(Calendar.DATE, 30);
+        areDatesEqual(offer.getExpireDate(), monthLater);
+        return this;
+    }
+
+    private void areDatesEqual(Calendar comparing, Calendar toCompare) {
+        List.of(Calendar.YEAR, Calendar.MONTH, Calendar.DAY_OF_MONTH)
+            .forEach(typeOfDate -> assertThat(comparing.get(typeOfDate)).isEqualTo(toCompare.get(typeOfDate)));
     }
 }
