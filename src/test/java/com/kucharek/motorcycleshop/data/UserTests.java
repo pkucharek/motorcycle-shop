@@ -13,11 +13,7 @@ public class UserTests {
                 .balance(1000L)
                 .build();
 
-        Offer offer = Offer.builder()
-                .owner(seller)
-                .motorcycle(new Motorcycle())
-                .price(500L)
-                .build();
+        Offer offer = motorcycleOffer(seller, 500L);
 
         boolean canBuy = buyer.canBuyMotorcycle(offer);
 
@@ -27,13 +23,10 @@ public class UserTests {
     @Test
     void user_cant_buy_offer_if_has_enough_money_but_is_the_owner() {
         User seller = User.builder()
-                .balance(1000L).build();
-
-        Offer offer = Offer.builder()
-                .owner(seller)
-                .motorcycle(new Motorcycle())
-                .price(500L)
+                .balance(1000L)
                 .build();
+
+        Offer offer = motorcycleOffer(seller, 500L);
 
         boolean canBuy = seller.canBuyMotorcycle(offer);
 
@@ -47,14 +40,18 @@ public class UserTests {
                 .balance(1000L)
                 .build();
 
-        Offer offer = Offer.builder()
-                .owner(seller)
-                .motorcycle(new Motorcycle())
-                .price(500L)
-                .build();
+        Offer offer = motorcycleOffer(seller, 500L);
 
         boolean canBuy = buyer.canBuyMotorcycle(offer);
 
         assertThat(canBuy).isTrue();
+    }
+
+    private Offer motorcycleOffer(User seller, long price) {
+        return Offer.builder()
+                .owner(seller)
+                .motorcycle(new Motorcycle())
+                .price(price)
+                .build();
     }
 }
