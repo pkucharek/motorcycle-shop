@@ -7,7 +7,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class UserTests {
 
     @Test
-    void user_can_buy_offer_if_is_not_the_owner_and_has_enough_money() {
+    void user_can_buy_offer_is_has_enough_money_and_is_not_the_owner() {
         User seller = new User();
         User buyer = userWithBalance(1000L);
         Offer offer = motorcycleOffer(seller, 500L);
@@ -21,15 +21,6 @@ public class UserTests {
         Offer offer = motorcycleOffer(seller, 500L);
 
         assertThat(seller.canBuyMotorcycle(offer)).isFalse();
-    }
-
-    @Test
-    void user_can_buy_offer_is_has_enough_money_and_is_not_the_owner() {
-        User seller = new User();
-        User buyer = userWithBalance(1000L);
-        Offer offer = motorcycleOffer(seller, 500L);
-
-        assertThat(buyer.canBuyMotorcycle(offer)).isTrue();
     }
 
     @Test
