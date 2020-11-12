@@ -13,9 +13,7 @@ public class UserTests {
 
         Offer offer = motorcycleOffer(seller, 500L);
 
-        boolean canBuy = buyer.canBuyMotorcycle(offer);
-
-        assertThat(canBuy).isTrue();
+        assertThat(buyer.canBuyMotorcycle(offer)).isTrue();
     }
 
     @Test
@@ -24,9 +22,7 @@ public class UserTests {
 
         Offer offer = motorcycleOffer(seller, 500L);
 
-        boolean canBuy = seller.canBuyMotorcycle(offer);
-
-        assertThat(canBuy).isFalse();
+        assertThat(seller.canBuyMotorcycle(offer)).isFalse();
     }
 
     @Test
@@ -36,9 +32,7 @@ public class UserTests {
 
         Offer offer = motorcycleOffer(seller, 500L);
 
-        boolean canBuy = buyer.canBuyMotorcycle(offer);
-
-        assertThat(canBuy).isTrue();
+        assertThat(buyer.canBuyMotorcycle(offer)).isTrue();
     }
 
     @Test
@@ -48,9 +42,7 @@ public class UserTests {
 
         Offer offer = motorcycleOffer(seller, 500L);
 
-        boolean canBuy = buyer.canBuyMotorcycle(offer);
-
-        assertThat(canBuy).isFalse();
+        assertThat(buyer.canBuyMotorcycle(offer)).isFalse();
     }
 
     private User userWithBalance(long balance) {
